@@ -155,10 +155,9 @@ The following individuals are part of the development team:
 - **Ahmed Abdullah**
 - **Mubarak Ashraf Alqadasi** [(@MubarakAshrafAlrawy)](https://github.com/MubarakAshrafAlrawy)
 - **Ismail Saeed Alsharehi** [(@Ismailalsharehi)](https://github.com/Ismailalsharehi)
-
-
-Mohammed Ali  Mahyoob
+- **Mohammed Ali  Mahyoob**
+- **Boshra Yahia**
 
 
 ---
-Boshra Yahia
+
