@@ -5,7 +5,7 @@
 
 <main class="main_islamic_payments_zakat">
   <section class="form_zakat">
-    <h1>حاسبة الزكاة</h1>
+    <!-- <h1>حاسبة الزكاة</h1>
     <img src="views/media/images/zkat.png" alt="">
     <p>"تجب الزكاة على المال إذا حال عليه الحول، 
       أي مر عليه عامٌ كامل وفق التقويم الهجري،
@@ -85,10 +85,77 @@
       </tbody>
     </table>
 
-    <!-- زر الحساب -->
+  
     <button class="calc-button" type="submit" nmae="calc_zakat">احسب الزكاة</button>
   </div>
+   -->
+   <img src="views/media/images/zkat.png" alt="">
+   <h1>حاسبة الزكاة </h1>
+   <div>
+      <label >المال :</label> 
+      <input type="number" placeholder="المبلغ">
+      <span>ريال</span>
+   </div><br>
+
+   <div>
+      <label>الفضة:</label>
+      <input type="number" placeholder="وزن الفضة">
+      <span>جرام</span>
+  </div><br>
+
+  <div>
+      <label>الذهب:</label>
+      <input type="number" placeholder="وزن الذهب">
+      <span>جرام</span>
+  </div><br>
+
+  <div>
+   <label>زكاة الابل:</label>
+   <input type="number" placeholder="العدد">
+   <span>رأس</span>
+  </div><br>
+
+  <div>
+   <label>زكاة البقر:</label>
+   <input type="number" placeholder="العدد">
+   <span>رأس</span>
+  </div><br> 
+
+    <div>
+    <button>حساب</button>  
+    <button>إضافة إلى السلة</button>
+    </div> 
+     
+  </section>
   
+  
+  <section >
+  <!-- تعريف عام  -->
+
+  <div>
+    <p>
+     <strong>قال الله تعالى :</strong>
+     (خُذْ مِنْ أَمْوَالِهِمْ صَدَقَةً تُطَهِّرُهُمْ وَتُزَكِّيهِم بِهَا وَصَلِّ عَلَيْهِمْ إِنَّ صَلَاتَكَ سَكَنٌ لَّهُمْ) [التوبة: 103]
+    </p>
+    
+    <p>
+      قال رسول الله صلى الله عليه وسلم:<strong>"اتقوا النار ولو بشقِّ تمرةٍ".</strong>رواه البخاري ومسلم.
+    </p>
+</div>
+
+  <div>
+    <p>
+      <strong> الزكاة وأحكامها:</strong><br>
+      الزكاة هي الركن الثالث من أركان الإسلام، فرضها الله على المسلمين 
+      القادرين تطهيرا لأموالهم، وتحقيقًا للتكافل الاجتماعي.
+      <br>أحكام الزكاة:<br>
+      1.حكمها:فرض عين على كل مسلم يملك النصاب ومر عليه الحول .<br>
+      2.النصاب:مقدار معين من المال تجب فيه الزكاة, وهو يعادل85 جراما من الذهب .<br>
+      3.الأنواع:تشمل زكاة المال ,الذهب والفضة ,الزروع والثمار ,عروضالتجارة ,الأنعام ,وزكاة الفطر .<br>
+      4.المستحقون:كما ورد في سورة التوبة(60),تشمل الفقراء,المساكين,العاملين عليها,
+      .المؤلفة قلوبهم,في الرقاب,الغارمين,في سبيل الله,وبن السبيل
+    </p>
+  </div>
   </section>
 </main>
 <?php require('views/parts/footer.php') ?>
