@@ -374,7 +374,7 @@ gap: 10px;
 /* .animate {
     transform: translateX(300px);
   } */
-@media (max-width:750px) {
+@media (max-width:900px) {
 
 
     .nav-links{
@@ -770,17 +770,12 @@ gap: 10px;
     background-color: #003337;
 
 }
-
-
-
-
 .user{
     margin: 0 auto;
     padding: var(--padding-xl);
-    width: 80%;
+    width: 60%;
     background-color: var(--bgcolor-white);
     text-align: center;
-  
 
     & .group{
         width: 70%;
@@ -848,6 +843,12 @@ gap: 10px;
     
 
     
+    }
+
+    @media (max-width: 768px) {
+        .user{
+            width: 80%;
+        }
     }
 
 
@@ -1101,7 +1102,13 @@ gap: 10px;
     border-color: rgb(205, 205, 205);
 
 }
-
+@media (max-width: 768px) {
+    .contact{
+    
+        width: 80%;
+    }
+    
+}
 
 /* ساسية الخصوصية */
 .privacy{
@@ -1147,14 +1154,14 @@ gap: 10px;
     }
 }
 
-/* البطاقة  */
+/*..................... البطاقة  */
 
 
 .container_card{
-    margin: var(--margin-s);
+    margin: 0 var(--margin-max);
     direction: rtl;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);;
+    grid-template-columns: repeat(4, 1fr);;
     justify-items:center;
     gap: 1rem;
 }
@@ -1190,9 +1197,9 @@ gap: 10px;
 }
 
 .progress-bar {
-    background: var(--bgcolor-light);
-    height: 12px;
-    margin: 15px;
+    background: rgb(234, 234, 234);
+    height: 15px;
+    margin-bottom: var(--margin-m);
     border-radius: 6px;
     position: relative;
     overflow: hidden;
@@ -1215,24 +1222,36 @@ gap: 10px;
         color: #333;
     }
     & h6 {
+        margin-bottom: var(--margin-m);
         text-align: center;
         padding-top:5px ;
         border-radius: 10px;
-        margin-right: 10px;
         background-color: #f5f5f5;
+        font-size: var(--font-size-m);
         width: 20%;
         height: 30px;
         font-weight: bold;
     }
+    & h5 {
+        margin-bottom: var(--margin-m);
+        text-align: center;
+        padding-top:5px ;
+        border-radius: 10px;
+        font-size: var(--font-size-m);
+        width: 30%;
+        height: 30px;
+        font-weight: bold;
+
+    }
 }
 .donation-details {
-    padding: 5px;
-    background: var(--bgcolor-light);
+    margin-bottom: var(--margin-l);
     border-radius: 6px;
-    margin: 0 10px 0 10px;
+    /* margin: 0 10px 0 10px; */
     font-size: 16px;
 
     & p{
+        font-size: var(--font-size-l);
         direction: ltr;
         width: 100%;
         text-align: left;
@@ -1245,18 +1264,21 @@ gap: 10px;
     align-items: center;
     justify-content: center;
     gap: 5px;
-    margin-top: 15px;
+    margin-top: 5px;
+    width: 100%;
+    /* background-color: #000; */
     & .donate_cart{
         display: flex;
         justify-content: center;
         align-items: center;
         height: 2.7em;
         width: 2.5em;
+        margin: auto;
         background-color: #ffffff;
         border: var(--bg-border-l);
         border-radius: var(--border-radius-s);
         padding: var(--padding-s);
-        margin-top: 1.2em ;
+        margin-top: 0.5em ;
 
         & :hover{
             background-color: var(--bgcolor-light);
@@ -1268,15 +1290,16 @@ gap: 10px;
             height: 20px;
         }
     }
-}
-.donate-section input {
-    height: auto;
-    padding: var(--padding-s);
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    text-align: right;
-    width: 60%;
-    font-size: 16px;
+
+    & input {
+        height: auto;
+        padding: var(--padding-s);
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        text-align: right;
+        width: 100%;
+        font-size: 16px;
+    }
 }
 .details{
     margin-top: 20px ;
@@ -3390,26 +3413,26 @@ table input[type="text"]:focus, table select:focus {
 
 @media screen and (max-width: 1440px) {
     .container_card {
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(4, 1fr);
     }
 }
 @media screen and (max-width: 1280px) {
     .container_card {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
 /* Medium screens (tablets) */
 @media screen and (max-width:  1024px) {
     .container_card {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 /* Small screens (phones) */
 @media screen and (max-width: 768px) {
     .container_card {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(1, 1fr);
     }
 }
 

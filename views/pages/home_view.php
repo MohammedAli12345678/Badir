@@ -133,7 +133,7 @@
             </a>
             <div class="donation-info">
               <div class="aghtha">
-                <h6 >بادر</h6>
+                <h6>بادر</h6>
                 <h5>رقم الحملة : <?= htmlspecialchars($campaign['campaign_id']) ?></h5>
                 <!-- <a href=""><img src="" alt=""></a> -->
               </div>
