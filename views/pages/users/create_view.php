@@ -7,7 +7,7 @@
   <!-- <section class="user" > -->
     
   <!-- <div class="modal-content "> -->
-  <section class="user" >
+  <section class="user " >
 
     <h1>تسجيل مستخدم جديد</h1>
     <form id="register-user-form " class="group" action="/users_verification" method="post" enctype="multipart/form-data">

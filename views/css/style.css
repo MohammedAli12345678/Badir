@@ -3433,6 +3433,8 @@ table input[type="text"]:focus, table select:focus {
 @media screen and (max-width: 768px) {
     .container_card {
         grid-template-columns: repeat(1, 1fr);
+        margin: 0;
+
     }
 }
 
@@ -3442,6 +3444,7 @@ table input[type="text"]:focus, table select:focus {
         grid-template-columns: repeat(1, 1fr);
         gap: 0.5rem;
         margin: var(--margin-xs);
+
     }
 }
 
