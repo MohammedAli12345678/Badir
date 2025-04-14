@@ -50,7 +50,7 @@
             <input type="file" id="photo" name="photo" accept="image/*">
         </div>
         <div class="form-group">
-            <button type="submit" name="submit">إضافة الوقف</button>
+            <button type="submit" name="submit" aria-label="اضافة">إضافة الوقف</button>
         </div>
     </form>
 </div>

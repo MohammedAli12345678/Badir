@@ -6,11 +6,17 @@ use models\User;
 
 $db  = App::resolve(Database::class);
 
-
-
-
-
 $erorrs = [];
+
+
+if (empty($_POST['email'])) {
+    $erorrs['email'] = "Please enter your email";
+}
+
+if (empty($_POST['password'])) {
+    $erorrs['password'] = "Please enter your password";
+}
+
 
 if (! Validator::email($_POST['email'])) {
     $erorrs['email'] = "not a valid email ";

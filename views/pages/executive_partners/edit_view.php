@@ -70,7 +70,7 @@
                     </div>
 
                     <div class="form-group">
-                        <button type="submit" name="submit"><?= isset($partner) ? "تحديث الشريك" : "إضافة شريك" ?></button>
+                        <button type="submit" name="submit" aria-label="اضافة"><?= isset($partner) ? "تحديث الشريك" : "إضافة شريك" ?></button>
                     </div>
                 </form>
             </div>

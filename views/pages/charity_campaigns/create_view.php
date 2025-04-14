@@ -19,11 +19,23 @@
     <form id="add-campaign-form" action="/charity_campaigns_store" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <label for="category_id">فئة الحملة:</label>
-            <input type="number" id="category_id" name="category_id" required>
+            <select id="category_id" name="category_id" required>
+                <!-- Dynamic Category List -->
+                <!-- Example: -->
+                <?php foreach ($categories as $category): ?>
+                <option value="<?= $category['category_id']?>"><?=$category['name']; ?></option>
+                <?php endforeach;?>
+            </select>
         </div>
         <div class="form-group">
             <label for="partner_id">الشريك:</label>
-            <input type="number" id="partner_id" name="partner_id" required>
+            <select id="partner_id" name="partner_id" required>
+                <!-- Dynamic Partner List -->
+                <!-- Example: -->
+                <?php foreach ($partners as $partner): ?>
+                <option value="<?= $partner['partner_id']?>"><?=$partner['name']; ?></option>
+                <?php endforeach;?>
+            </select>
         </div>
         <div class="form-group">
             <label for="name">اسم الحملة:</label>
@@ -55,7 +67,7 @@
             <input type="file" id="photo" name="photo" accept="image/*">
         </div>
         <div class="form-group">
-            <button type="submit" name="submit">إضافة الحملة</button>
+            <button type="submit" name="submit" aria-label="اضافة">إضافة الحملة</button>
         </div>
     </form>
 </div>

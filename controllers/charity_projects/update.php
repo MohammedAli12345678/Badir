@@ -149,7 +149,8 @@ try {
             country = COALESCE(:country, country),
             city = COALESCE(:city, city),
             street = COALESCE(:street, street),
-            photo = COALESCE(:photo, photo)
+            photo = COALESCE(:photo, photo),
+            beneficiaries_count = COALESCE(:beneficiaries_count, beneficiaries_count)
         WHERE project_id = :project_id",
         [
             'partner_id' => $_POST['partner_id'] ?? null,
@@ -169,7 +170,8 @@ try {
             'city' => $_POST['city'] ?? null,
             'street' => $_POST['street'] ?? null,
             'photo' => $filenamenew ?? null,
-            'project_id' => $_POST['project_id']
+            'project_id' => $_POST['project_id'],
+            'beneficiaries_count' => $_POST['beneficiaries_count']
         ]
     );
 

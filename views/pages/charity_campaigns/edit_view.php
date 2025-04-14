@@ -80,7 +80,7 @@
                     </div>
                     
                     <div class="form-group">
-                        <button type="submit" name="submit"><?= isset($campaign) ? "تحديث الحملة" : "إضافة الحملة" ?></button>
+                        <button type="submit" name="submit" aria-label="اضافة"><?= isset($campaign) ? "تحديث الحملة" : "إضافة الحملة"  ?></button>
                     </div>
                 </form>
             </div>

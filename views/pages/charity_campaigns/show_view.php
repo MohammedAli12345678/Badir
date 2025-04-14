@@ -10,13 +10,13 @@
             <!-- <h3 style="color: var(--font-color-bh);
         font-size: var(--font-size-xl);">التفاصيل</h3> -->
             <div class="imgs">
-            <img src="views/media/images/<?php  echo $campaigns['0']['photo'] ?? "11.png" ?>" alt=" " loading="lazy"></div>
+            <img src="views/media/images/<?php  echo $campaigns['0']['photo'] ?? "11.png" ?>" alt="صورة الحملة المستهدفة" loading="lazy"></div>
             <p class="localshin">المنطقة تعز</p>
             <div>
             <h5> <?php  echo $campaigns['0']['name'] ?></h5>
             <p class="details_p"><?php  echo $campaigns['0']['short_description'] ?></p>
         </div>
-            <h5>رقم الحملة : <?php  echo $campaigns['0']['campaign_id'] ?></h5>
+            <h5>رقم الحملة : <?php  echo $campaigns['0']['category_id'] ?></h5>
             <div class="progress-bar">
                 <div class="progress" style="width:<?= htmlspecialchars(($campaigns['0']['collected_money']/$campaigns['0']['cost'])*100) ?>% " ></div>
               </div>
@@ -30,9 +30,9 @@
         <h2>مبلغ التبرع</h2>
         <div class="donation-min-box">
         <input type="number" id="customAmount" placeholder="قيمة المبلغ" oninput="updateDonateButton()" required min="0" max="<?= htmlspecialchars($campaign['0']['cost'] - $campaign['0']['collected_money']) ?>" >
-        <a class="icon_cart" id="icon_nav_search" href=""><img class="icon_img" src="views/media/images/cart.png" alt=""></a>
+        <a class="icon_cart" id="icon_nav_search" href=""><img class="icon_img" src="views/media/images/cart.png" alt="السلة" loading="lazy"></a>
         </div>
-        <button id="donate">تبرع الآن</button>
+        <button id="donate" aria-label="التبرع">تبرع الآن</button>
     </div>
 </section>
 

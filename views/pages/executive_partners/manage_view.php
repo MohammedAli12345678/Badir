@@ -37,34 +37,34 @@
           <tr>
             
             <td><input type="checkbox" class="select-partner"></td>
-            <td><img src="views/media/images/<?= htmlspecialchars($partner['photo'] ?? "default.png") ?>" alt="شعار الشريك" class="partner-logo"></td>
+            <td><img src="views/media/images/<?= htmlspecialchars($partner['photo'] ?? "default.png") ?>" alt="شعار الشريك" class="partner-logo" loading="lazy"></td>
             <td><?= htmlspecialchars($partner['name']) ?>
               <nav class="options">
                 <ul>
                   <li>
                     <form action="/executive_partners_show" method="get">
                       <input type="hidden" name="partner_id" value="<?= htmlspecialchars($partner['partner_id']) ?>">
-                      <button type="submit">عرض</button>
+                      <button type="submit" aria-label="عرض">عرض</button>
                     </form>
                   </li>
                   <li>
                     <form action="/executive_partners_edit" method="get">
                       <input type="hidden" name="partner_id" value="<?= htmlspecialchars($partner['partner_id']) ?>">
-                      <button type="submit">تعديل</button>
+                      <button type="submit" aria-label="تعديل">تعديل</button>
                     </form>
                   </li>
                   <li>
                     <form action="/executive_partners_destroy" method="post">
                       <input type="hidden" name="_method" value="DELETE">
                       <input type="hidden" name="partner_id" value="<?= htmlspecialchars($partner['partner_id']) ?>">
-                      <button type="submit">حذف</button>
+                      <button type="submit" aria-label="حذف">حذف</button>
                     </form>
                   </li>
                   <li>
                     <form action="/notifications_create" method="get">
                       <input type="hidden" name="" value="">
                       <input type="hidden" name="partner_id" value="<?= htmlspecialchars($campaign['partner_id']) ?>">
-                      <button type="submit">اشعار</button>
+                      <button type="submit" aria-label="اشعار">اشعار</button>
                     </form>
                   </li>
                 </ul>

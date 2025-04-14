@@ -16,9 +16,9 @@
                  آمنة وفعالة لإدارة التبرعات وتوجيهها الى مكانها الصحيح
             </p><br><br>
             <div class="icon_foter">
-                <a id="whats_icon" class="whats_icon" href="https://wa.me/+967775432120"><img src="views/media/images/whatsapp.png" alt=""></a>
-                <a id="email_icon" class="email_icon" href="mailto:badir.charity.org@gmail.com"><img src="views/media/images/mail.png" alt=""></a>
-                <a id="insta_icon" class="insta_icon" href="https://instagram.com/ismail_alsharehi"><img src="views/media/images/instagram.png" alt=""></a>
+                <a id="whats_icon" class="whats_icon" href="https://wa.me/+967775432120"><img src="views/media/images/whatsapp.png" alt="وتساب"></a>
+                <a id="email_icon" class="email_icon" href="mailto:badir.charity.org@gmail.com"><img src="views/media/images/mail.png" alt="جيميل"></a>
+                <a id="insta_icon" class="insta_icon" href="https://instagram.com/ismail_alsharehi"><img src="views/media/images/instagram.png" alt="انستجرام"></a>
             </div>
 
 
@@ -32,7 +32,7 @@
         <div class="contact_us">
             <h1>تواصل معنا</h1><hr>
             <p>إذا واجهتك مشكلة أو لديك أي استفسار لا تتردد في التواصل معنا</p>
-            <h3>إرسال إشعار</h3><hr>
+            <h1>إرسال إشعار</h1><hr>
             <!-- <div class="send_notifications">
                 <form  action="" method="" enctype="multipart/form-data">
                     <input class="address_notice" id="address_notice" type="text" name="address_notice" placeholder="عنوان الاشعار"><br>

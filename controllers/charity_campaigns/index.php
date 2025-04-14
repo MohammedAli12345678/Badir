@@ -8,6 +8,9 @@ $db = App::resolve(Database::class);
 $page = "charity_campaigns_index" ;
 
 $heading = "All My tests";
+if(isset($_SESSION['campaigns']) && isset($_SESSION['campaigns'][$_GET['page_number']])){
+    $page_campaigns = $_SESSION['campaigns'][$_GET['page_number']];
+}
 
 try {
     // Fetch categories for the dropdown
@@ -52,13 +55,13 @@ try {
         $params['category_id'] = $filter;
     }
     
-    if ($_GET['submit'] == "foryou") {
+    if(isset($_GET['submit']) && $_GET['submit'] == "foryou"){
         $query .= " AND u.user_id = :user_id";
         $params['user_id'] = $_SESSION['user']['id'];
     }
-
+    
     // 👌 Finalize Query
-    $query .= " GROUP BY g.campaign_id ORDER BY g.start_at;";
+    $query .= " GROUP BY g.campaign_id ORDER BY RAND();";
 
     // Execute the query
     $campaigns = $db->query($query, $params)->fetchAll();

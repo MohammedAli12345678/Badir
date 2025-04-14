@@ -2,52 +2,50 @@
 <?php require('views/parts/adminbar.php') ?>
 <?php require('views/parts/navgtion.php') ?>
 <?php require('views/parts/header.php') ?>
+<script src="views/javascrept/aqiqah.js"></script>
+
 
 <main class="main_islamic_payments_zakat">
   <section class="form_zakat">
-  <!-- لحسابة  العقيعه-->
-   <!-- Form Section -->
-   <form action="">
-      <h2>احسب العقيقة</h2>
 
-      <!-- اختيار نوع المولود -->
-      <label>نوع المولود :</label>
+    <h2>احسب العقيقة</h2>
+    <label>نوع المولود :</label>
       <div class="type-options">
-        <div class="option-box" data-type="ذكر">ذكر</div>
-        <div class="option-box" data-type="أنثى">أنثى</div>
+        <div class="option-box" onclick="calculate('male')">ذكر</div>
+        <div class="option-box" onclick="calculate('female')">انثى</div>
       </div>
 
-      <input type="hidden" id="babyType" name="babyType">
 
-      <!-- عدد المواليد -->
-      <div class="input-group">
-        <label for="babiesCount">عدد المواليد</label>
-        <input type="number" id="babiesCount" name="babiesCount" required min="1">
-      </div>
+      <label for="days">عدد الاطفال</label>
+      <input type="number" id="count" name="days" required min="1">
 
-      <!-- زر الحساب -->
-      <button type="button">احسب العقيقة</button>
+    <!-- النتيجة -->
 
-      <!-- النتيجة -->
-      <input type="text" placeholder="ناتج العقيقه ">
-      <div class="donate-section">
-                  <form action="/islamic_payments_donate" method="post" class="donate-section" required>
-                    <input class="inp" type="number" name="cost" placeholder="$" required min="0" max="<?= htmlspecialchars($islamic_payment['cost'] - $islamic_payment['paid_cost']) ?> ">
-                    <input type="hidden" name="islamic_payment_id" value="<?= htmlspecialchars($islamic_payment['islamic_payment_id']) ?>">
-                    <button type="submit" class="donate-btn">تبرع الأن</button>
-                  </form>
-                  <form action="/islamic_payments_addcart" method="post">
-                    <input type="hidden" name="islamic_payment_id" value="<?= htmlspecialchars($islamic_payment['islamic_payment_id']) ?>">
-                    <button type="submit" class="donate_cart"><img src="views/media/images/cart.png" alt=""></button>
-                  </form>
-                </div>
+    <div class="donate-section">
+      <form action="/islamic_payments_checkout" method="get" class="donate-section" required>
+        <input class="inp" type="number" name="cost" placeholder="$" required id="result">
+        <input type="hidden" name="islamic_payment_id" value="3">
+        <button type="submit" class="donate-btn" aria-label="تبرع الأن">تبرع الأن</button>
+      </form>
+      <form action="/islamic_payments_addcart" method="post">
+        <input type="hidden" name="islamic_payment_id" value="3">
+        <button type="submit" class="donate_cart" aria-label="السله"><img src="views/media/images/cart.png" alt=""></button>
+      </form>
+    </div>
 
-    </form>
+
   </section>
-    
-  <section >
-  <!-- تعريف عام  -->
-  <div class="info-section">
+
+
+
+
+
+
+
+
+  <section>
+    <!-- تعريف عام  -->
+    <div class="info-section">
       <h2>ما هي العقيقة؟</h2>
       <p>
         العقيقة هي ذبح شاة أو أكثر عن المولود في اليوم السابع من ولادته. وهي سنة مؤكدة، ولها العديد من الفوائد.

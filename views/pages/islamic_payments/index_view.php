@@ -23,14 +23,14 @@
           <?php foreach ($islamic_payments as $islamic_payment): ?>
 
             <div class="donation-card">
-              <a href="/islamic_payments_zakat">
+              <a href="/islamic_payments_show?islamic_payment_id=<?= htmlspecialchars($islamic_payment['islamic_payment_id']) ?>">
                 <img src="views/media/images/<?= htmlspecialchars($islamic_payment['photo'] ?? "11.png") ?>" alt="مشروع نور السعودية">
               </a>
               <div class="donation-info">
                 <div class="aghtha">
 
                   <h5>رقم الحملة : <?= htmlspecialchars($islamic_payment['islamic_payment_id']) ?></h5>
-                  <a href=""><img src="" alt=""></a>
+                  <!-- <a href=""><img src="" alt=""></a> -->
                 </div>
                 <h3> <?= htmlspecialchars($islamic_payment['type']) ?> </h3>
                 <div class="progress-bar">
@@ -42,19 +42,20 @@
                   </div>
                 </div>
                 <div class="donate-section">
-                  <form action="/islamic_payments_donate" method="post" class="donate-section" required>
-                    <input class="inp" type="number" name="cost" placeholder="$" required min="0" max="<?= htmlspecialchars($islamic_payment['cost'] - $islamic_payment['paid_cost']) ?> >
+                  <form action="/islamic_payments_checkout" method="get" class="donate-section" required>
+                    <input class="inp" type="number" name="cost" placeholder="$" required min="0" max="<?= htmlspecialchars($islamic_payment['cost'] - $islamic_payment['paid_cost']) ?> ">
                     <input type="hidden" name="islamic_payment_id" value="<?= htmlspecialchars($islamic_payment['islamic_payment_id']) ?>">
-                    <button type="submit" class="donate-btn">تبرع الأن</button>
+                    <button type="submit" class="donate-btn" aria-label="تبرع الأن">تبرع الأن</button>
                   </form>
                   <form action="/islamic_payments_addcart" method="post">
                     <input type="hidden" name="islamic_payment_id" value="<?= htmlspecialchars($islamic_payment['islamic_payment_id']) ?>">
-                    <button type="submit" class="donate_cart"><img src="views/media/images/cart.png" alt=""></button>
+                    <button type="submit" class="donate_cart"  aria-label="السله"><img src="views/media/images/cart.png" alt="السلة" loading="lazy"></button>
                   </form>
                 </div>
-                <a href="/islamic_payments_zakat">
-                  <div class="details">عرض التفاصيل</div>
-                </a>
+                <div class="details">
+                  <a href="/islamic_payments_show?islamic_payment_id=<?= htmlspecialchars($islamic_payment['islamic_payment_id'])  ?>">
+                    عرض التفاصيل</a>
+                </div>
               </div>
             </div>
           <?php endforeach; ?>

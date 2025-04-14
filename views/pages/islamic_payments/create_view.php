@@ -43,7 +43,7 @@
             <input type="file" id="photo" name="photo" accept="image/*" required>
         </div>
         <div class="form-group">
-            <button type="submit" name="submit">إضافة دفعة</button>
+            <button type="submit" name="submit" aria-label="اضافة">إضافة دفعة</button>
         </div>
     </form>
     </div>

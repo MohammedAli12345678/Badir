@@ -10,7 +10,7 @@
   <?php // dd($users);
   ?>
   <div class="modal-content">
-    <h2>تسجيل مستخدم جديد</h2>
+    <h2>تعديل بيانات المستخدم</h2>
     <form id="register-user-form" action="/users_update" method="post" enctype="multipart/form-data">
     <input type="hidden" name="_method" value="PUT">
     <input type="hidden" name="user_id" value="<?= htmlspecialchars($users['user_id']) ?>">
@@ -72,7 +72,7 @@
       </div>
 
       <div class="form-group">
-        <button type="submit" name="submit">تسجيل مستخدم</button>
+        <button type="submit" name="submit" aria-label="حفظ التحديثات">حفظ التحديثات</button>
       </div>
     </form>
 

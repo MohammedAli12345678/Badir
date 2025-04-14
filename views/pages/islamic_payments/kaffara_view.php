@@ -2,43 +2,52 @@
 <?php require('views/parts/adminbar.php') ?>
 <?php require('views/parts/navgtion.php') ?>
 <?php require('views/parts/header.php') ?>
+<script src="views/javascrept/kaffara.js"></script>
+
 
 <main class="main_islamic_payments_zakat">
   <section class="form_zakat">
-  <!-- حسابة الكفاره-->
+    <!-- حسابة الكفاره-->
 
-  
+
     <!-- فورم حساب الكفارة -->
-    <form >
+    <form>
       <h2>احسب الكفارة حسب حالتك</h2>
 
       <label>اختر نوع الكفارة:</label>
       <div class="type-options">
-        <div class="option-box" data-type="يمين">كفارة يمين (الحلف بالله)</div>
-        <div class="option-box" data-type="صيام">كفارة إفطار في رمضان (متعمد)</div>
-        <div class="option-box" data-type="ظهار">كفارة الظهار</div>
-        <div class="option-box" data-type="قتل">كفارة القتل الخطأ</div>
-        <div class="option-box" data-type="نذر">كفارة النذر</div>
+        <div class="option-box" onclick="calculate('yamin')" >كفارة يمين (الحلف بالله)</div>
+        <div class="option-box" onclick="calculate('ramadan')" >كفارة إفطار في رمضان (متعمد)</div>
+        <div class="option-box" onclick="calculate('zihar')" >كفارة الظهار</div>
+        <div class="option-box" onclick="calculate('qatal')" >كفارة القتل الخطأ</div>
+        <div class="option-box" onclick="calculate('nother')" >كفارة النذر</div>
       </div>
-
-      <input type="hidden" id="type" name="type">
 
       <label for="count">كم مرة وجبت عليك الكفارة؟</label>
       <input type="number" id="count" name="count" required min="1">
 
-      <button type="submit">احسب</button>
-
-      <input type="text" placeholder="ناتج الكفارة التي عليك">
+      
     </form>
 
+    <div class="donate-section">
+      <form action="/islamic_payments_checkout" method="get" class="donate-section" required>
+        <input class="inp" type="number" name="cost" placeholder="$" required id="result">
+        <input type="hidden" name="islamic_payment_id" value="4">
+        <button type="submit" class="donate-btn" aria-label="تبرع الأن">تبرع الأن</button>
+      </form>
+      <form action="/islamic_payments_addcart" method="post">
+        <input type="hidden" name="islamic_payment_id" value="4">
+        <button type="submit" class="donate_cart" aria-label="السله"><img src="views/media/images/cart.png" alt=""></button>
+      </form>
+    </div>
 
   </section>
 
 
 
-  <section >
-  <!-- تعريف عام  -->
-   
+  <section>
+    <!-- تعريف عام  -->
+
     <!-- معلومات حول الكفارة -->
     <div class="info-box info-section">
       <h2>ما هي الكفارة؟</h2>

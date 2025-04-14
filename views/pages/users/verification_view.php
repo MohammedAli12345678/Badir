@@ -13,7 +13,7 @@
     </div>
     
     <div>
-      <button type="submit" name="submit">إرسال </button>
+      <button type="submit" name="submit" aria-label="ارسال">إرسال </button>
     </div>
       
     </form>

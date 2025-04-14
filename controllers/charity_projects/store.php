@@ -116,7 +116,10 @@ try {
             cost,
             country,
             city,
-            street
+            street,
+            beneficiaries_count,
+            level,
+            type
         ) VALUES (
             :partner_id,
             :category_id,
@@ -127,7 +130,10 @@ try {
             :cost,
             :country,
             :city,
-            :street
+            :street,
+            :beneficiaries_count,
+            :level,
+            :type
         )",
         [
             'partner_id' => $_POST['partner_id'],
@@ -139,10 +145,25 @@ try {
             'cost' => filter_var($_POST['cost'], FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION),
             'country' => htmlspecialchars($_POST['country']),
             'city' => htmlspecialchars($_POST['city']),
-            'street' => htmlspecialchars($_POST['street'])
+            'street' => htmlspecialchars($_POST['street']),
+            'beneficiaries_count' => filter_var($_POST['beneficiaries_count'], FILTER_SANITIZE_NUMBER_INT),
+            'level' => filter_var($_POST['level'], FILTER_SANITIZE_NUMBER_INT),
+            'type' => $_POST['type']
         ]
     );
+    $levels = json_decode($_POST['levels'],true);
+    if(json_last_error() === JSON_ERROR_NONE){
+        $project_id = $db->lastId();
+        for($i = 0;$i < count($levels);$i++){
+            $db->query("insert into levels (level_id, project_id, name) values(:level_id, :project_id , :name)",[
+                'level_id'=> $i,
+                'project_id'=>$project_id,
+                'name'=>$levels[$i]
+            ]);
+        }
+    }else{
 
+    }
 
     
 } catch (PDOException $e) {

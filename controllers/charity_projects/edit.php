@@ -20,6 +20,9 @@ try {
 ", [
     'project_id' => $_GET['project_id'] ]
     )->findOrFail();
+    $levels = $db->query("SELECT * FROM LEVELS WHERE project_id = :project_id",[
+        'project_id' => $_GET['project_id']
+    ])->fetchAll();
 } catch (PDOException $e) {
 
     error_log($e->getMessage());

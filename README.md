@@ -170,7 +170,7 @@ The Foloing individuals are part of Maintenance Team :
 - **Zyad Faisal (Z24)**
 - **Moharram Algarady (M33)**
 - **Shatha Albanna (SH25)**
-- **Ala'a Ahmed (A5)**
+- **Alaa Ahmed (A5)**
 - **Ahmed Anwar (A2)**
 - **Mubarak Ashraf Alqadasi (M32)** [(@MubarakAshrafAlrawy)](https://github.com/MubarakAshrafAlrawy)
 
@@ -178,7 +178,7 @@ The Foloing individuals are part of Maintenance Team :
 ---
 ## Project Teasting Team
 
-The Foloing individuals are part of Teasting Team :
+The Following individuals are part of Testing Team :
 
 - **Mohammed Mogeab Ahmed Al-Hajj (M37)** [(@MohammedMogeab)](https://github.com/MohammedMogeab), **Head of this team**
 - **Ali Abdulsalam Mohammed Ali (A30)**
@@ -270,3 +270,8 @@ The Foloing individuals are part of Documentation Team :
 - **Manar Ossamah (M39)**
 
   ---
+
+
+
+
+Alaa Ahmed --A5 (MAINTANCE TEAM)

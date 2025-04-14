@@ -8,7 +8,7 @@
             <!-- <h3 style="color: var(--font-color-bh);
         font-size: var(--font-size-xl);">التفاصيل</h3> -->
             <div class="imgs">
-            <img src="views/media/images/<?php  echo $endowments['0']['photo'] ?? "11.png" ?>" alt=" " loading="lazy"></div>
+            <img src="views/media/images/<?php  echo $endowments['0']['photo'] ?? "11.png" ?>" alt=" شعار الوقف" loading="lazy"></div>
             <p class="localshin">المنطقة <?php  echo $endowments['0']['directorate'] ?></p>
             <div>
             <h5><?php  echo $endowments['0']['name'] ?></h5>
@@ -27,10 +27,10 @@
 <div class="donation-box">
         <h2>مبلغ التبرع</h2>
         <div class="donation-min-box">
-        <input type="number" id="customAmount" placeholder="قيمة المبلغ" oninput="updateDonateButton()" required min="0" max="<?= htmlspecialchars($endowments['0']['cost'] - $endowments['0']['donate_cost']) ?> >
-        <a class="icon_cart" id="icon_nav_search" href=""><img class="icon_img" src="views/media/images/cart.png" alt=""></a>
+        <input type="number" id="customAmount" placeholder="قيمة المبلغ" oninput="updateDonateButton()" required min="0" max="<?= htmlspecialchars($endowments['0']['cost'] - $endowments['0']['donate_cost']) ?>" >
+        <a class="icon_cart" id="icon_nav_search" href=""><img class="icon_img" src="views/media/images/cart.png" alt="السلة" loading="lazy"></a>
         </div>
-        <button id="donate">تبرع الآن</button>
+        <button id="donate" aria-label="التبرع">تبرع الآن</button>
     </div>
 </section>
 
@@ -53,7 +53,7 @@
         <div class="card_insid" id="card_insid">
         <div>
         <h6>نوع المشروع</h6>
-        <p>علاجي</p>
+        <p> </p>
         <h6>المبلغ المستهدف</h6>
         <p> ر.س</p>
 

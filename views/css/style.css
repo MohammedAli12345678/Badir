@@ -900,12 +900,12 @@ gap: 10px;
         color: var(--font-color-bl);
 
     }
-    & .notifications{
+    /* & .notifications{
 
     }
     & .basket{
 
-    }
+    } */
 }
 /* user ves */
 .MUV{
@@ -1477,9 +1477,9 @@ gap: 10px;
     
   }
 
-.Carousel_card{
+/* .Carousel_card{
 
-}
+} */
 
 
 .tbr3 {    
@@ -2272,7 +2272,7 @@ gap: 10px;
     & img {
         width: 50px;
         height: 50px;
-        border-radius: 4px;
+        border-radius: 5px;
     }
     & tr{
         background-color: #000;
@@ -2366,6 +2366,8 @@ gap: 10px;
 
 /* charity_campaigns.................................. */
 
+
+
 /* show */
 
 .main_show_ch{
@@ -2443,6 +2445,16 @@ gap: 10px;
 
     }
 
+<<<<<<< HEAD
+=======
+
+    & .details_show_ch{
+        margin-top: var(--margin-s);
+        background-color: var(--bgcolor-light);
+        padding: 20px;
+        border-radius: var(--border-radius-s);
+        width: 100%;
+>>>>>>> main
 
 
 
@@ -3466,6 +3478,7 @@ table input[type="text"]:focus, table select:focus {
     background: var(--button-bg-h);
 }
 
+<<<<<<< HEAD
 
 
   
@@ -3473,3 +3486,14 @@ table input[type="text"]:focus, table select:focus {
 
   
   
+=======
+.img img {
+    display: block;
+    width: 50%;
+    height: 500px;
+    aspect-ratio: 16 / 9;
+  
+    object-fit: cover;
+    border-radius: 0.5em;
+}
+>>>>>>> main

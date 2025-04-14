@@ -36,34 +36,34 @@
         <?php foreach ($islamic_endowments as $endowment): ?>
           <tr>
             <td><input type="checkbox" class="select-endowment"></td>
-            <td><img src="views/media/images/<?= htmlspecialchars($endowment['photo'] ?? "default.png") ?>" alt="شعار الوقف" class="endowment-logo"></td>
+            <td><img src="views/media/images/<?= htmlspecialchars($endowment['photo'] ?? "default.png") ?>" alt="شعار الوقف" class="endowment-logo" loading="lazy"></td>
             <td><?= htmlspecialchars($endowment['name']) ?>
               <nav class="options">
                 <ul>
                   <li>
                     <form action="/islamic_endowments_show" method="get">
                       <input type="hidden" name="endowment_id" value="<?= htmlspecialchars($endowment['endowment_id']) ?>">
-                      <button type="submit">عرض</button>
+                      <button type="submit" aria-label="عرض">عرض</button>
                     </form>
                   </li>
                   <li>
                     <form action="/islamic_endowments_edit" method="get">
                       <input type="hidden" name="endowment_id" value="<?= htmlspecialchars($endowment['endowment_id']) ?>">
-                      <button type="submit">تعديل</button>
+                      <button type="submit" aria-label="تعديل">تعديل</button>
                     </form>
                   </li>
                   <li>
                     <form action="/islamic_endowments_destroy" method="post">
                       <input type="hidden" name="_method" value="DELETE">
                       <input type="hidden" name="endowment_id" value="<?= htmlspecialchars($endowment['endowment_id']) ?>">
-                      <button type="submit">حذف</button>
+                      <button type="submit" aria-label="حذف">حذف</button>
                     </form>
                   </li>
                   <li>
                       <form action="/notifications_create" method="get">
                         <input type="hidden" name="" value="">
                         <input type="hidden" name="endowment_id" value="<?= htmlspecialchars($campaign['endowment_id']) ?>">
-                        <button type="submit">اشعار</button>
+                        <button type="submit" aria-label="اشعار">اشعار</button>
                       </form>
                   </li>
                 </ul>

@@ -8,7 +8,7 @@
 <main class="main_show_ch">
     <section class="card_islamic_endowments">
         <div class="imgs">
-            <img src="views/media/images/<?php echo $IslamicPayments['0']['photo'] ?? "default.png"; ?>" alt="Payment Photo" loading="lazy">
+            <img src="views/media/images/<?php echo $IslamicPayments['0']['photo'] ?? "default.png"; ?>" alt="شعار الوقف الإسلامي" loading="lazy">
         </div>
         <p class="localshin">المنطقة: صنعاء</p>
         <div>
@@ -26,10 +26,10 @@
             <div class="donation-box">
                 <h2>مبلغ المساهمة</h2>
                 <div class="donation-min-box">
-                    <input type="number" id="customAmount" placeholder="قيمة المساهمة" oninput="updateDonateButton()" required min="0" max="<?= htmlspecialchars($islamic_payment['0']['cost'] - $islamic_payment['0']['paid_cost']) ?> >
-                    <a class="icon_cart" id="icon_nav_search" href=""><img class="icon_img" src="views/media/images/cart.png" alt=""></a>
+                    <input type="number" id="customAmount" placeholder="قيمة المساهمة" oninput="updateDonateButton()" required min="0" max="<?= htmlspecialchars($islamic_payment['0']['cost'] - $islamic_payment['0']['paid_cost']) ?>" >
+                    <a class="icon_cart" id="icon_nav_search" href=""><img class="icon_img" src="views/media/images/cart.png" alt="السلة" loading="lazy"></a>
                 </div>
-                <button id="donate">ساهم الآن</button>
+                <button id="donate" aria-label="ساهم الان">ساهم الآن</button>
             </div>
         </section>
     </section>

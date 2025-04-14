@@ -12,13 +12,13 @@
         <div class="box_h">
         <label for="password">ادخل كلمة المرور : </label>
         <input id="password" type="password" name="password" placeholder="كلمة المرور"></div>
-        <button class="btn_log_in" id="btn_log_in" >تسجيل</button>
+        <button class="btn_log_in" id="btn_log_in" aria-label="تسجيل دخول" >تسجيل دخول</button>
         <div class="link_forgot_password_link_log_in">
           </div>
         </form>
         
-        <a class="link_forgot_password" id="link_forgot_password" href="">هل نسيت كلمةالمرور ؟</a>
-        <a class="link_log_in" id="link_log_in" href="">انشاءحساب</a>
+        <a class="link_forgot_password" id="link_forgot_password" href="/users_changepassword">هل نسيت كلمةالمرور ؟</a>
+        <a class="link_log_in" id="link_log_in" href="/users_create">انشاءحساب</a>
   
   </section>
 </main>

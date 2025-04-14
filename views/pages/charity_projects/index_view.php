@@ -17,7 +17,7 @@
     </div>
     <form action="" method="">
       <input id="search" type="text" name="search">
-      <button id="btn_search" type="submit" name="btn_search"><img src="views/media/images/search.png" alt=""></button>
+      <button id="btn_search" type="submit" name="btn_search"><img src="views/media/images/search.png" alt="البحث" loading="lazy"></button>
     </form>
     <p>انضموا الينا في تقديم فرص تبرع تؤثر بشكل واسع وتدعم المجتمعات المحتاجة مع ضمان تحقيق نتائج طويلة الأمد</p>
   
@@ -34,13 +34,13 @@
 
         <div class="donation-card">
         <a href="/charity_projects_show?project_id=<?= htmlspecialchars($project['project_id']) ?>">
-          <img src="views/media/images/<?= htmlspecialchars($project['photo'] ?? "11.png") ?>" alt="مشروع نور السعودية" loading="lazy">
+          <img src="views/media/images/<?= htmlspecialchars($project['photo'] ?? "11.png") ?>" alt="مشروع نور اليمن" loading="lazy">
         </a>
           <div class="donation-info">
             <div class="aghtha">
               <h6><?= htmlspecialchars($project['type']) ?></h6>
               <h5>رقم الحملة : <?= htmlspecialchars($project['project_id']) ?></h5>
-              <a href=""><img src="" alt=""></a>
+              <!-- <a href=""><img src="" alt=""></a> -->
             </div>
             <h3> <?= htmlspecialchars($project['name']) ?> </h3>
             <div class="progress-bar">
@@ -52,14 +52,16 @@
               </div>
             </div>
             <div class="donate-section">
-              <form action="/charity_projects_donate" method="post" class="donate-section">
-                <input class="inp" type="number" name="cost" placeholder="$" required min="0" max="<?= htmlspecialchars($project['cost'] - $project['collected_money']) ?> >
+
+              <form action="/charity_projects_checkout" method="get" class="donate-section">
+
+                <input class="inp" type="number" name="cost" placeholder="$" required min="0" max="<?= htmlspecialchars($project['cost'] - $project['collected_money']) ?>" >
                 <input type="hidden" name="project_id" value="<?= htmlspecialchars($project['project_id']) ?>">
-                <button type="submit" class="donate-btn">تبرع الأن</button>
+                <button type="submit" class="donate-btn" aria-label="التبرع">تبرع الأن</button>
               </form>
               <form action="/charity_projects_addcart" method="post">
                 <input type="hidden" name="project_id" value="<?= htmlspecialchars($project['project_id']) ?>">
-                <button type="submit" class="donate_cart"><img src="views/media/images/cart.png" alt=""></button>
+                <button type="submit" class="donate_cart" aria-label="السلة"><img src="views/media/images/cart.png" alt="السلة" loading="lazy"></button>
               </form>
             </div>
             <div class="details">

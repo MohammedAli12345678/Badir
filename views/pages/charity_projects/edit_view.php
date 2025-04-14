@@ -45,6 +45,11 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="beneficiaries_count">عدد المستفيدين:</label>
+                        <input type="text" id="beneficiaries_count" name="beneficiaries_count" required value="<?= isset($project) ? htmlspecialchars($project['beneficiaries_count']) : '' ?>">
+                    </div>
+
+                    <div class="form-group">
                         <label for="short_description">وصف قصير:</label>
                         <textarea id="short_description" name="short_description" rows="3" required><?= isset($project) ? htmlspecialchars($project['short_description']) : '' ?></textarea>
                     </div>
@@ -73,7 +78,18 @@
                         <label for="street">الشارع:</label>
                         <input type="text" id="street" name="street" required value="<?= isset($project) ? htmlspecialchars($project['street']) : '' ?>">
                     </div>
-
+                    <div class="form-group">
+                        <label for="level">المرحلة الحالية:</label>
+                        <select id="levelselect" name="level">
+                            <?php if(isset($levels)):
+                                foreach($levels as $level):?>
+                                <option value="<?=$level['level_id']?>" <?= $level['level_id'] == $project['level']? 'selected':''?>><?=$level['name']?></option>
+                            <?php endforeach;
+                            else:?>
+                            <option value="0">جمع التبرعات</option>
+                            <?php endif;?>
+                        </select>
+                    </div>
                     <div class="form-group">
                         <label for="photo">صورة المشروع:</label>
                         <input type="file" id="photo" name="photo" accept="image/*">
@@ -83,14 +99,11 @@
                     </div>
 
                     <div class="form-group">
-                        <button type="submit" name="submit"><?= isset($project) ? "تحديث المشروع" : "إضافة المشروع" ?></button>
+                        <button type="submit" name="submit" aria-label="اضافة"><?= isset($project) ? "تحديث المشروع" : "إضافة المشروع" ?></button>
                     </div>
                 </form>
             </div>
         </section>
     </div>
 </main>
-
-
-
 <?php require('views/parts/footer.php') ?>
