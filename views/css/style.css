@@ -240,13 +240,35 @@ footer {
         }
 
     }
+    & button{
+        background-color: transparent;
+        border: none;
+    }
 
+}
+.logout{
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 8rem;
+    height: 35px ;
+    background-color:var(--bgcolor-light) ;
+    border-radius: 0.3em;
+    border: none;
+    color: var(--bgcolor-dark);
+    font-weight: bold;
+    cursor: pointer;
+}
+.logout:hover{
+    background-color:   #bad5d7;
 }
 
 .logo_image{
     display: inline;
-    width: 50px;
+    width: 80px;
     height: 100%;
+    
 
 }
 
@@ -431,7 +453,7 @@ gap: 10px;
         width: auto;
         height: 180px;
         border-radius: 20px;
-        opacity: 0.5;
+        opacity: 0;
 
     }
 
@@ -2445,16 +2467,13 @@ gap: 10px;
 
     }
 
-<<<<<<< HEAD
-=======
-
     & .details_show_ch{
         margin-top: var(--margin-s);
         background-color: var(--bgcolor-light);
         padding: 20px;
         border-radius: var(--border-radius-s);
         width: 100%;
->>>>>>> main
+    }
 
 
 
@@ -3417,6 +3436,21 @@ table input[type="text"]:focus, table select:focus {
     }
   }
   
+  /* zakat..................... */
+  .main_ZS{
+    display: block;
+
+    & table{
+        color: white;
+    }
+    
+  }
+  .info-group{
+    display: flex;
+  }
+  .infoZ{
+    display: flex;
+  }
 
 
 
@@ -3478,15 +3512,7 @@ table input[type="text"]:focus, table select:focus {
     background: var(--button-bg-h);
 }
 
-<<<<<<< HEAD
 
-
-  
-
-
-  
-  
-=======
 .img img {
     display: block;
     width: 50%;
@@ -3496,4 +3522,4 @@ table input[type="text"]:focus, table select:focus {
     object-fit: cover;
     border-radius: 0.5em;
 }
->>>>>>> main
+

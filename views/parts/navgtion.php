@@ -20,7 +20,7 @@
             <button class="menu" onclick="openMenu()" aria-label="open menu"><img src="views/media/images/list.png" alt="open menu"></button>
             <button class="close" onclick="closeMenu()" aria-label="close menu"><img src="views/media/images/close.png" alt="close menu"></button>
 
-            <a href="/"> <img class="logo_image" src="views/media/images/badir_logo.jpg" alt="badir logo"></a>
+            <a href="/"> <img class="logo_image" src="views/media/images/badir.png" alt="badir logo"></a>
 
         </div>
 
@@ -48,7 +48,7 @@
             <a class="icon_nav_search" id="icon_nav_search" href="/cart"><img class="icon_img" src="views/media/images/cart.png" alt="السله"></a>
             <form action="/sessions_destroy" class="but_sgin" method="post">
                 <input type="hidden" name="_method" value="DELETE">
-                <button type="submit"  aria-label="تسجيل الخروج">تسجيل الخروج</button>
+                <button class="logout" type="submit"  aria-label="تسجيل الخروج">تسجيل الخروج</button>
             </form>
             <?php else : ?>
                 <a class="but_sgin" href="/users_create"> انشاء حساب </a>

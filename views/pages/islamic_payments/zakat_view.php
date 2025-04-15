@@ -4,7 +4,7 @@
 <?php require('views/parts/header.php') ?>
 <script src="views/javascrept/zakat.js"></script>
 
-<main class="main_islamic_payments_zakat">
+<main class="main_ZS main_islamic_payments_zakat">
   <section class="form_zakat">
     <!-- <h1>حاسبة الزكاة</h1>
     <img src="views/media/images/zkat.png" alt="">
@@ -126,7 +126,7 @@
     <br>
 
 
-    <button onclick="calculate()">حساب الزكاة </button>
+    <button style="width: 10em;" onclick="calculate()">حساب الزكاة </button>
 
 
 
@@ -146,8 +146,9 @@
 
   </section>
 
+  <div class="info-group">
 
-  <section class="info-section">
+  <section class="info-section infoZ">
 
 
     <div>
@@ -180,7 +181,7 @@
 
 
 
-  <section class="info-section">
+  <section class="info-section infoZ">
     <div>
       <p>
         <strong style="color: var(--font-color-gl);">شروط زكاة بهيمة الأنعام:</strong><br>
@@ -326,7 +327,8 @@
       </table>
     </div>
   </section>
-  <section class="info-section">
+  </div>
+  <section class="info-section infoZ">
     <div>
       <p>
         <strong style="color: var(--font-color-gl);">زكاة الزروع والثمار:</strong><br><br>
@@ -374,6 +376,7 @@
       </table>
     </div>
   </section>
+ 
 
 </main>
 <?php require('views/parts/footer.php') ?>

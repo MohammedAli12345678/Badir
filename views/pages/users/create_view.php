@@ -4,7 +4,7 @@
 <main class="main_user">
 
   <!-- انشاء حساب جديد -->
-   <section class="user"> 
+   <!-- <section class="user">  -->
     
   <!-- <div class="modal-content "> -->
   <section class="user " >
@@ -55,13 +55,12 @@
             <label for="notifications">استقبال الإشعارات:</label>
             <input type="checkbox" id="notifications" name="notifications" checked>
         </div>
-<<<<<<< HEAD
+<!-- <<<<<<< HEAD
         <div class="form-group box_h">
             <button type="submit" name="submit">تسجيل مستخدم</button>
-=======
-        <div class="form-group">
+======= -->
+        <div class="form-group box_h">
             <button type="submit" name="submit" aria-label="تسجيل مستخدم">تسجيل مستخدم</button>
->>>>>>> main
         </div>
     </form>
  <!-- </div> -->

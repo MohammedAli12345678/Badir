@@ -6,7 +6,7 @@
 <!-- <h1>footer</h1> -->
      <div class="main_foter">
         <div class="photo_padir">
-            <img src="views/media/images/bader.png" alt="">
+            <img src="views/media/images/badir.png" alt="">
         </div>
         <div class="who_are_we">
             <h1>من نحن؟</h1><hr>
