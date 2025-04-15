@@ -35,9 +35,9 @@
         <input type="hidden" name="islamic_payment_id" value="4">
         <button type="submit" class="donate-btn" aria-label="تبرع الأن">تبرع الأن</button>
       </form>
-      <form action="/islamic_payments_addcart" method="post">
+      <form class="form_cart" action="/islamic_payments_addcart" method="post">
         <input type="hidden" name="islamic_payment_id" value="4">
-        <button type="submit" class="donate_cart" aria-label="السله"><img src="views/media/images/cart.png" alt=""></button>
+        <button type="submit" class="donate_cart cart_tbr3" aria-label="السله"><img src="views/media/images/cart.png" alt=""></button>
       </form>
     </div>
 

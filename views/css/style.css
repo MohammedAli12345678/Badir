@@ -3284,6 +3284,12 @@ table input[type="text"]:focus, table select:focus {
         align-items: center;
     }
 }
+/* التبرع */
+.form_cart{
+    margin-bottom: 70px;
+
+
+}
 
   
   .form_zakat form {
@@ -3349,20 +3355,34 @@ table input[type="text"]:focus, table select:focus {
     border-color: var(--primary-color);
   }
   
-  .form_zakat button {
+  .form_zakat .donate-btn {
     padding: var(--padding-s);
     border: none;
     border-radius: var(--button-radius);
     background-color: var(--button-bg-h);
     color: var(--white-color);
     font-size: 18px;
+    width: 100%;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
   }
   
-  .form_zakat button:hover {
+  .form_zakat .donate-btn:hover {
     background-color: var(--button-bg-l);
     transform: translateY(-2px);
+  }
+  .cart_tbr3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+  }
+  .cart_tbr3:hover{
+    background-color: var(--bgcolor-light);
   }
   
   /* تنسيق قسم المعلومات التعريفية */
