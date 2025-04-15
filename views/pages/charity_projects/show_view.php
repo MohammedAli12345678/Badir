@@ -46,18 +46,10 @@
 
     <div class="card_insid" id="card_insid">
         <div>
-<<<<<<< HEAD
-        <h6>نوع المشروع</h6>
-        <p><?php  echo $projects['0']['type'] ?></p>
-        <h6>المبلغ المستهدف</h6>
-        <p>  <?php  echo $projects['0']['cost'] ?>  ر.س</p>
-
-=======
             <h6>نوع المشروع</h6>
             <p><?php  echo $categories[$projects['0']['category_id']]['name']?></p>
             <h6>المبلغ المستهدف</h6>
             <p>  <?php  echo $projects['0']['cost'] ?>  ر.س</p>
->>>>>>> 5a9748945105ddde8512f1741aca967437a26a95
         </div>
         <div>
             <h6>عدد المستفيدين</h6>
@@ -66,17 +58,10 @@
             <p> <?php echo ceil((strtotime($projects['0']['end_at']) - strtotime($projects['0']['start_at'])) / (60 * 60 * 24)); ?>  يوم </p>
         </div>
         <div>
-<<<<<<< HEAD
-        <h6>المبلغ الذي تم جمعة</h6>
-        <p> <?php  echo $projects['0']['collected_money'] ?>  ر.س</p>
-        <h6>عدد المتبرعين</h6>
-        <p><?php  echo $projects['0']['number_of_donores'] ?> </p>
-=======
             <h6>المبلغ الذي تم جمعة</h6>
             <p> <?php  echo $projects['0']['collected_money'] ?>  ر.س</p>
             <h6>عدد المتبرعين</h6>
             <p><?= $projects['0']['donators_count']?></p>
->>>>>>> 5a9748945105ddde8512f1741aca967437a26a95
         </div>
     </div>
     <?php if(isset($levels)):?>

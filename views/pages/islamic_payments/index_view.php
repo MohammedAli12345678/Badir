@@ -34,7 +34,7 @@
                 </div>
                 <h3> <?= htmlspecialchars($islamic_payment['type']) ?> </h3>
                 <div class="progress-bar">
-                  <div class="progress"></div>
+                  <div class="progress" style="width: <?= htmlspecialchars(($islamic_payment['paid_cost'] / $islamic_payment['cost']) * 100) ?>%;"></div>
                 </div>
                 <div class="donation-details">
                   <div>
@@ -60,6 +60,17 @@
             </div>
           <?php endforeach; ?>
         </section>
+        <div style="display: flex; width: 50%; justify-content: space-around; border-radius: 5px; height:20px; padding: 40px; border: 2px solid blue; align-self:center; align-items: center; text-align: center;">
+          <a href="/islamic_payments_index?page_number=<?= isset($_GET['page_number']) ? $_GET['page_number'] - 1 : 1 ?>" style="<?php echo !isset($_GET['page_number']) || $_GET['page_number'] - 1 <= 0 ? 'pointer-events: none; cursor: default; opacity: 0.3; ' : 'pointer-events: auto; cursor: pointer; ' ?>"><img src="views/media/images/left.png" alt="previous" loading="lazy" heigh= "50px" width= "50px"></a>
+          <div style="height: inherit; width: auto; font-size: larger; font-family: 'Times New Roman', Times, serif;" >
+            <div style="display: flex; flex-direction: row; justify-content: space-around; width: 100%;">
+              <div style="width: fit-content;"><?php echo (isset($_GET['page_number'])? $_GET['page_number'] - 1 : 0) . " . . . " ; ?></div>
+              <div style="color: blue; width: fit-content;"><?php echo "   " . isset($_GET['page_number'])? $_GET['page_number'] : 1 . "   "; ?></div>
+              <div style="width: fit-content;"><?php echo " . . . " . (isset($_GET['page_number'])? $_GET['page_number'] + 1: 2 ); ?></div>
+            </div>
+          </div>
+          <a href="/islamic_payments_index?page_number=<?= isset($_GET['page_number']) ? $_GET['page_number'] + 1 : 2 ?>"style="<?php echo !isset($_GET['page_number']) || $_GET['page_number'] + 1 > $pages_count['islamic_payments']? 'pointer-events: none; cursor: default; opacity: 0.3;  ' : 'pointer-events: auto; cursor: pointer; ' ?>"><img src="views/media/images/next.png" alt="next" loading="lazy" heigh= "50px" width= "50px" ></a>
+        </div>
         <section class="bar_action">
 
         </section>

@@ -122,7 +122,9 @@ if (isset($_POST["submit"])) {
                 city,
                 street,
                 phone,
-                notifications
+                notifications,
+                verification_code,
+                code_expiry
             ) VALUES (
                 :username,
                 :password,
@@ -133,7 +135,10 @@ if (isset($_POST["submit"])) {
                 :city,
                 :street,
                 :phone,
-                :notifications
+                :notifications,
+                :verification_code,
+                :code_expiry
+
             )",
         [
           'username' => htmlspecialchars($data['username']),
@@ -146,6 +151,8 @@ if (isset($_POST["submit"])) {
           'street' => htmlspecialchars($data['street']),
           'phone' => filter_var($data['phone'], FILTER_SANITIZE_STRING),
           'notifications' => isset($data['notifications']) ? 1 : 0,
+          'verification_code' => $_SESSION['verification_code'],
+          'code_expiry' => $_SESSION['code_expiry'],
         ]
       );
 

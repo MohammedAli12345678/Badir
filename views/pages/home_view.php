@@ -183,7 +183,7 @@
 
       <div class="t3 box" >
         <p>بفضل كرمكم تجاوزنا الكثير من التبرعات. معاً نصنع الفرق.</p>
-        <P class="pt">عدد عمليات التبرع <br><span>25,7 ألف</span> <br> عملية تبرع</P>
+        <P class="pt">عدد عمليات التبرع <br><span><?=$users_statistics['donates_sum'] ?></span> <br> عملية تبرع</P>
       </div>
       <hr>
       <div class="t3 box">
@@ -192,7 +192,7 @@
           وغيرنا بهم حياة الكثيرين.
         </p>
         <p class="pt">عددالمشاريع المكتملة<br><span>
-            25,7 ألف </span><br> مشروع</p>
+       <?php echo $projects_statistics['completed']['completed']?></span><br> مشروع</p>
       </div>
       <hr>
 
@@ -200,7 +200,7 @@
         <p>بفضل الله ثم بدعمكم السخي، وصلنا إلى هذاالعدد
           من المستفيدين وغيرنا حياتهم للأفضل
         </p>
-        <p class="pt">عدد المستفيدين<br><span>25,7ألف</span><br>مستفيد</p>
+        <p class="pt">عدد المستفيدين<br><span><?php echo $beneficiaries_project_campain['beneficiaries_count']?></span><br>مستفيد</p>
       </div>
     </div>
 

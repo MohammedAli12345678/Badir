@@ -13,10 +13,14 @@
 
               <form action="/services/phpmailer/send-email" method="post">
                 <label for="type">:النوع</label><br>
-
                 <div class="group_type">
-                  <!-- <select name="" id=""></select> -->
-                   <input type="text">
+                  <select name="" id="" class="group_type" style="width: 100%; text-align:right;">
+                      <?php foreach($contact_type as $type):?>
+                        <option value="<?= $type['problem_type']?>"><?= $type['problem_type']?></option>
+                        <?php endforeach; ?>
+                  </select>
+                
+                   <!-- <input type="text"> -->
                 </div>
                 <label for="address">:العنوان</label>
                 <input id="address" type="text" name="address">

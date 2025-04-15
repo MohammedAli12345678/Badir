@@ -3,8 +3,21 @@ use core\App ;
 use core\Database ;
 $db = App::resolve(Database::class);
 
+//$page_projects_ids = $pages_count = $_SESSION['projects_pages'] = $_SESSION['projects_pages'][$_GET['page_number']] = array(); // [];
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 $page = "charity_projects_index" ;
+if(!isset($_GET['page_number'])) $_GET['page_number'] = 1; // if page_number not set in $_GET
 
+if(isset($_SESSION['projects_pages']) && isset($_SESSION['projects_pages'][$_GET['page_number']])){
+    $page_projects_ids = $_SESSION['projects_pages'][$_GET['page_number']];
+}else if(!isset($_SESSION['projects_count_all'])){
+    $page_projects_ids = [];
+    $_SESSION['projects_count_all'] = $db->query(
+        "select count(*) as count from projects;"
+        )->fetchAll()['0']['count'];
+}
+
+$pages_count['projects'] = $_SESSION['projects_count_all']/10 + 1;
 try {
     // Fetch categories for the dropdown
     $categories = $db->query("SELECT category_id, name FROM categories")->fetchAll();
@@ -35,40 +48,57 @@ try {
         FROM 
             projects P 
         LEFT JOIN 
-            users_donate_projects B ON P.project_id = B.project_id
-        WHERE 1=1 
+            users_donate_projects B ON P.project_id = B.project_id 
+        Group by P.project_id 
+        HAVING P.project_id > 0
     ";
+    if(!empty($search) || ($filter !== 'all') || (isset($_GET['submit']) && $_GET['submit'] == "foryou") ){
+        $params = [];
 
-    $params = [];
+        // 🔎 Add Search Filter
+        if (!empty($search)) {
+            $query .= " AND MATCH(p.name, p.short_description, p.full_description) AGAINST (:search IN NATURAL LANGUAGE MODE)";
+            $params['search'] = $search;
+        }
 
-    // 🔎 Add Search Filter
-    if (!empty($search)) {
-        $query .= " AND MATCH(p.name, p.short_description, p.full_description) AGAINST (:search IN NATURAL LANGUAGE MODE)";
-        $params['search'] = $search;
+        // 🎯 Add Category Filter (if a valid category is selected)
+        if ($filter !== 'all' && is_numeric($filter)) {
+            $query .= " AND P.category_id = :category_id";
+            $params['category_id'] = $filter;
+        }
+
+        if (isset($_GET['submit']) && $_GET['submit'] == "foryou") {
+            $query .= " AND B.user_id = :user_id";
+            $params['user_id'] = $_SESSION['user']['id'];
+        }
+        $projects = $db->query($query, $params)->fetchAll();
+    }elseif/*ides are stored in session */(isset($_SESSION['projects_pages']) && isset($_SESSION['projects_pages'][$_GET['page_number']]) && count($_SESSION['projects_pages'][$_GET['page_number']]) > 0){
+        $query .= " AND P.project_id IN (".implode(separator: ",",array: $_SESSION['projects_pages'][$_GET['page_number']]).")";
+        $projects = $db->query($query)->fetchAll();
+    }else{// list of items arent stored yet in session
+        if(isset($_SESSION['projects_pages'])){
+            $query .= " AND P.project_id NOT IN (-1,-2 ";
+            foreach($_SESSION['projects_pages'] as $key => $value){
+                if(isset($value) && count($value) > 0){
+                    $query .= ",".implode(",", $value);
+                }
+            }
+            $query .= ")";
+        }
+        $query.= " ORDER BY RAND() limit 10;";
+        $projects = $db->query($query)->fetchAll();
+        foreach($projects as $project){
+            $page_projects_ids[] = $project['project_id'];
+        }
+        $_SESSION['projects_pages'][$_GET['page_number']] = $page_projects_ids;
     }
-
-    // 🎯 Add Category Filter (if a valid category is selected)
-    if ($filter !== 'all' && is_numeric($filter)) {
-        $query .= " AND P.category_id = :category_id";
-        $params['category_id'] = $filter;
-    }
-
-    if (isset($_GET['submit']) && $_GET['submit'] == "foryou") {
-        $query .= " AND B.user_id = :user_id";
-        $params['user_id'] = $_SESSION['user']['id'];
-    }
-
-
-    // 👌 Finalize Query
-    $query .= " GROUP BY P.project_id ORDER BY P.start_at DESC;";
 
     // Execute the query
-    $projects = $db->query($query, $params)->fetchAll();
 
 } catch (PDOException $e) {
     error_log($e->getMessage());
     $_SESSION['error'] = "حدث خطأ أثناء جلب البيانات";
-    header("Location: /charity_campaigns_create");
+    header("Location: /$page");
     exit();
 }
 

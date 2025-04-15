@@ -55,14 +55,14 @@
         <div class="card_insid" id="card_insid">
         <div>
         <h6>نوع المشروع</h6>
-        <p>علاجي</p>
+        <p><?php  echo $categories[$campaigns['0']['category_id']]['name']?></p>
         <h6>المبلغ المستهدف</h6>
         <p> <?php  echo $campaigns['0']['cost'] ?>ر.س</p>
 
         </div>
         <div>
         <h6>عدد المستفيدين</h6>
-        <p>100 محتاج</p>
+        <p>1</p>
         <h6>الوقت المتبقي</h6>
         <p> <?php echo ceil((strtotime($campaigns['0']['end_at']) - strtotime($campaigns['0']['start_at'])) / (60 * 60 * 24)); ?>  يوم</p>
         </div>
@@ -70,7 +70,7 @@
         <h6>المبلغ الذي تم جمعة</h6>
         <p><?php  echo $campaigns['0']['collected_money'] ?>  ر.س</p>
         <h6>عدد المتبرعين</h6>
-        <p>8000</p>
+        <p><?php  echo $campaigns['0']['donators_count'] ?></p>
         </div>
     </div>
     <div class="card_insid" id="card_insid2">

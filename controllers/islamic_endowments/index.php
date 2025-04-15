@@ -5,6 +5,18 @@ $db = App::resolve(Database::class);
 
 
 $page = "islamic_endowments_index" ;
+if(!isset($_GET['page_number'])) $_GET['page_number'] = 1; // if page_number not set in $_GET
+
+if(isset($_SESSION['endowments_pages']) && isset($_SESSION['endowments_pages'][$_GET['page_number']])){
+    $page_endowments_ids = $_SESSION['endowments_pages'][$_GET['page_number']];
+}else if(!isset($_SESSION['endowments_count_all'])){
+    $page_endowments_ids = [];
+    $_SESSION['endowments_count_all'] = $db->query(
+        "select count(*) as count from endowments;"
+        )->fetchAll()['0']['count'];
+}
+
+$pages_count['endowments'] = $_SESSION['endowments_count_all']/10 + 1;
 
 try {
     // Fetch categories for filtering
@@ -16,31 +28,45 @@ try {
 
     // Base Query
     $query = "SELECT * FROM endowments WHERE 1=1";
-    $params = [];
+    if(!empty($search) || ($filter !== 'all') || (isset($_GET['submit']) && $_GET['submit'] == "foryou") ){
+        $params = [];
 
-    // 🔎 Add Search Filter
-    if (!empty($search)) {
-        $query .= " AND MATCH(name, short_description, full_description) AGAINST (:search IN NATURAL LANGUAGE MODE)";
-        $params['search'] = $search;
+        // 🔎 Add Search Filter
+        if (!empty($search)) {
+            $query .= " AND MATCH(name, short_description, full_description) AGAINST (:search IN NATURAL LANGUAGE MODE)";
+            $params['search'] = $search;
+        }
+
+        // 🎯 Add Category Filter (if a valid category is selected)
+        if ($filter !== 'all' && is_numeric($filter)) {
+            $query .= " AND category_id = :category_id";
+            $params['category_id'] = $filter;
+        }
+        if (isset($_GET['submit']) && $_GET['submit'] == "foryou") {
+            $query .= " AND u.user_id = :user_id";
+            $params['user_id'] = $_SESSION['user']['id'];
+        }
+        $islamic_endowments = $db->query($query, $params)->fetchAll();
+    }elseif/*ides are stored in session */(isset($_SESSION['endowments_pages']) && isset($_SESSION['endowments_pages'][$_GET['page_number']]) && count($_SESSION['endowments_pages'][$_GET['page_number']]) > 0){
+        $query .= " AND endowment_id IN (".implode(separator: ",",array: $_SESSION['endowments_pages'][$_GET['page_number']]).");";
+        $islamic_endowments = $db->query($query)->fetchAll();
+    }else{// list of items arent stored yet in session
+        if(isset($_SESSION['endowments_pages'])){
+            $query .= " AND endowment_id NOT IN (-1,-2 ";
+            foreach($_SESSION['endowments_pages'] as $key => $value){
+                if(isset($value) && count($value) > 0){
+                    $query .= ",".implode(",", $value);
+                }
+            }
+            $query .= ")";
+        }
+        $query.= " ORDER BY RAND() limit 10;";
+        $islamic_endowments = $db->query($query)->fetchAll();
+        foreach($islamic_endowments as $endowment){
+            $page_endowments_ids[] = $endowment['endowment_id'];
+        }
+        $_SESSION['endowments_pages'][$_GET['page_number']] = $page_endowments_ids;
     }
-
-    // 🎯 Add Category Filter (if a valid category is selected)
-    if ($filter !== 'all' && is_numeric($filter)) {
-        $query .= " AND category_id = :category_id";
-        $params['category_id'] = $filter;
-    }
-    if (isset($_GET['submit']) && $_GET['submit'] == "foryou") {
-        $query .= " AND u.user_id = :user_id";
-        $params['user_id'] = $_SESSION['user']['id'];
-    }
-
-
-    // 👌 Finalize Query
-    $query .= " ORDER BY name ASC;";
-
-    // Execute the query
-    $islamic_endowments = $db->query($query, $params)->fetchAll();
-
 } catch (PDOException $e) {
     error_log($e->getMessage());
     $_SESSION['error'] = "حدث خطأ أثناء جلب البيانات";

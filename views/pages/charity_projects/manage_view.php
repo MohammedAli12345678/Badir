@@ -87,12 +87,15 @@
           </tbody>
         </table>
 <<<<<<< HEAD
+<<<<<<< HEAD
         </div>
       
    
 =======
 
 >>>>>>> main
+=======
+>>>>>>> 8b54bec6ddb9088ddce10098b587d3f071afb34d
         </section>
       </main>
 <?php require('views/parts/footer.php') ?>
