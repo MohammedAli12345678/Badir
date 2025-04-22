@@ -222,6 +222,7 @@
       </p>
 
       <div class="login_tbr3 ">
+      <?php  if ($_SESSION['user'] ?? false) : ?>
         <div class="login_for_home_and_tbr3 box">
           <p>خطواتك الأولى نحو العطاء تبدأ من هنا.
             انشئ حساباَ واستكشف الفرص للمساهمة في الخير.<br>
@@ -230,6 +231,7 @@
             <button type="button" aria-label=" انشاء حساب">إنشاء حساب</button>
           </a>
         </div>
+        <?php endif ?>
         <div class="login_for_home_and_tbr3 box">
           <p>
             تبرعك اليوم يصنع فرقاً، غداً كن جزءاً من الخير.<br>

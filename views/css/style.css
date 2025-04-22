@@ -1585,7 +1585,8 @@ gap: 10px;
         margin: 20px;
         border-radius: 20px;
         border: 1px solid #c3c3c3;
-        width: 60%;
+        width: 100%;
+        max-width: 800px;
 
         & p {
             font-size: var(--font-size-l);

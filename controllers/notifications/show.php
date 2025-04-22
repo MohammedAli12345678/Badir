@@ -63,6 +63,6 @@ try {
 // ])->fetchAll();
 
 
-visible($campaigns);
+visible($notifications);
 
 require "views/pages/notifications/show_view.php";

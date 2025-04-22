@@ -38,6 +38,6 @@ try {
 // echo "</pre>" ;
 //authorize($note['other_id'] == $userID);
 
-
+visible($users);
 
 require "views/pages/users/show_view.php";
