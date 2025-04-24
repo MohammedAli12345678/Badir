@@ -5,7 +5,7 @@
 
 <main class="main_manage">
   <section class="section_manage">
-    <a class="add-link" href="/users_create">إضافة</a>
+    <!-- <a class="add-link" href="/users_create">إضافة</a> -->
 
     <!-- جدول الحملات الحالية -->
     <h2>المستخدمين </h2>

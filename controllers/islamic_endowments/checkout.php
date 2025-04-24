@@ -11,20 +11,10 @@ $db = App::resolve(Database::class);
 try {
     $endowments =$db->query( "
     SELECT endowment_id,
-        category_id,
-        partner_id,
-        name,
         short_description,
-        full_description,
-        cost,
-        state,
-        directorate,
-        country,
-        city,
-        street,
         photo
     FROM endowments 
-    where endowment_id = :endowment_id",[
+    where endowment_id = :endowment_id and state = 'active';",[
     'endowment_id' => $_GET['endowment_id'],
     ])->findOrFail();
  

@@ -4,6 +4,7 @@
 <?php require('views/parts/header.php') ?>
 <?php $errors = ($_SESSION['errors'] ?? '' ) ; unset($_SESSION['errors']) ; ?>
 
+
 <main class="main_user">
 
   <!-- انشاء حساب جديد -->
@@ -13,12 +14,12 @@
   <div class="modal-content">
     <h2>تعديل بيانات المستخدم</h2>
     <?php
-          if (!empty($_GET)) {
-              foreach ($_GET as $key => $value) {
-                  echo "<h1 style='color:red'>".htmlspecialchars($value) . "</h1>";
-              }
+      if (!empty($_GET)) {
+          foreach ($_GET as $key => $value) {
+              echo "<h1 style='color:red'>".htmlspecialchars($value) . "</h1>";
           }
-        ?>
+      }
+    ?>
     <form id="register-user-form" action="/users_update" method="post" enctype="multipart/form-data">
     <input type="hidden" name="_method" value="PUT">
     <input type="hidden" name="user_id" value="<?= htmlspecialchars($users['user_id']) ?>">

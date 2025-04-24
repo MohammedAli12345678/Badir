@@ -10,13 +10,6 @@ try {
  
     $islamic_payments = $db->query("SELECT 
         islamic_payment_id,
-        type,
-        count,
-        cost,
-        paid_cost,
-        name,
-        payment_date,
-        user_id,
         short_description,
         photo
     FROM islamic_payments where islamic_payment_id =:islamic_payment_id  ",[

@@ -11,26 +11,10 @@ try {
 
     $projects = $db->query("
     SELECT project_id,
-        partner_id,
-        category_id,
-        level,
-        name,
         short_description,
-        full_description,
-        type,
-        cost,
-        start_at,
-        beneficiaries_count,
-        stop_at,
-        end_at,
-        state,
-        directorate,
-        country,
-        city,
-        street,
         photo
     FROM projects 
-    WHERE project_id = :project_id
+    WHERE project_id = :project_id and state = 'active'
     ", [
     'project_id' => $_GET['project_id'] 
     ])->findOrFail();
