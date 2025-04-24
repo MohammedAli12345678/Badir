@@ -43,7 +43,7 @@ function calculate() {
       money_silver_zakat =  money_silver_amount * silverPrice * money_zakatRate
     }
     
- alert(money_zakat);
+//  alert(money_zakat);
     if (minerals_amount > (gold_boundarie * goldPrice)) {
       minerals_zakat =  minerals_amount * minerals_zakatRate
     }

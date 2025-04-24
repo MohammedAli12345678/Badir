@@ -14,6 +14,7 @@ if (isset($_SESSION['ban_time']) && $_SESSION['ban_time'] > time()) {
 require('views/parts/head.php');
 require('views/parts/adminbar.php');
 require('views/parts/navgtion.php');
+// dd($_SESSION['verification_code']);
 ?>
 
 
@@ -22,6 +23,7 @@ require('views/parts/navgtion.php');
   <!-- التحقق من الحساب -->
   <section class="user" id="show_user">
     <h1>verification</h1>
+    
 
     <form action="/users_store" method="POST">
       <div>
@@ -37,6 +39,13 @@ require('views/parts/navgtion.php');
     <div>
       <a href="/users_verification">إعادة إرسال الكود </a>
     </div>
+        <?php
+          if (!empty($_GET)) {
+              foreach ($_GET as $key => $value) {
+                  echo "<h1 style='color:red'>".htmlspecialchars($value) . "</h1>";
+              }
+          }
+        ?>
   </section>
   <!-- 
   <form action="/users_store" method="POST">

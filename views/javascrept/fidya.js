@@ -13,7 +13,7 @@ function calculate(kafara) {
 
     // التحقق إذا لم يُدخل العدد أو أدخل عدد غير صحيح
     if (!count || count < 1) {
-      alert("يرجى إدخال عدد صحيح للكفارات المطلوبة.");
+      countInput.value = "1";
       countInput.focus();
       return; // نوقف التنفيذ
     }

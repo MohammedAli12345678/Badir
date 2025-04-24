@@ -29,6 +29,7 @@ if (! Validator::string($_POST['password'])) {
 
 if (! empty($erorrs)) {
     require 'views/sessions/create_view.php';
+    return;
 }
 try {
     $user = $db->query("select * from users where email = :email ; ", [

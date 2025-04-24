@@ -12,55 +12,16 @@ use core\Database;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-
-
-
   $db = App::resolve(Database::class);
 
-  // $data = $_SESSION['user_data'];
+  $data = $_SESSION['user_data'];
 
   $errors = [];
-
-
-  // التحقق من صحة البيانات
-  // if (!Validator::string($data['username'] ?? '', 3, 255)) {
-  //   $errors['username'] = "اسم المستخدم يجب أن يكون بين 3 و255 حرفًا.";
-  // }
-
-  // if (!Validator::email($data['email'] ?? '')) {
-  //   $errors['email'] = "البريد الإلكتروني غير صالح.";
-  // }
-
-  // if (!Validator::string($data['password'] ?? '', 6, 255)) {
-  //   $errors['password'] = "كلمة المرور يجب أن تتكون من 6 أحرف على الأقل.";
-  // }
-
-  // if (!Validator::string($data['country'] ?? '', 2, 255)) {
-  //   $errors['country'] = "البلد غير صالح.";
-  // }
-
-  // if (!Validator::string($data['city'] ?? '', 2, 255)) {
-  //   $errors['city'] = "المدينة غير صالحة.";
-  // }
-
-  // if (!Validator::string($data['street'] ?? '', 2, 255)) {
-  //   $errors['street'] = "الشارع غير صالح.";
-  // }
-
-  // if (!Validator::phone($data['phone'] ?? '')) {
-  //     $errors['phone'] = "رقم الهاتف غير صالح.";
-  // }
-
-
-  // if (isset($_POST["submit"])) {
-
-
-
+  // cheak if the code is empty
   $entered_code = $_POST['verification_code'];
   $saved_code = $_SESSION['verification_code'];
   $code_expiry = $_SESSION['code_expiry'];
   $current_time = time();
-
   //  cheak if the code is expired
   if ($current_time > $code_expiry) {
     $_SESSION['error'] = "كود التحقق منتهي الصلاحية. يرجى إعادة الإرسال.";
@@ -77,13 +38,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   }
 
   //  get the user data from the sessionn
-  // $data = $_SESSION['user_data'];
-
   if ($entered_code === $saved_code) {
     if ($_SESSION['process_type'] === 'register') {
       $data = $_SESSION['user_data'];
-
-
+      // dd($_SESSION['verification_code']);
 
 
       // cheak if the email is already used
@@ -138,7 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           [
             'username' => htmlspecialchars($data['username']),
             'password' => password_hash($data['password'], PASSWORD_BCRYPT),
-            'photo' => $filenamenew,
+            'photo' => $filenamenew ?? "user.png",
             'email' => filter_var($data['email'], FILTER_SANITIZE_EMAIL),
             'type' => 'normal',
             'country' =>  htmlspecialchars($data['country']),
@@ -150,10 +108,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'code_expiry' => $_SESSION['code_expiry'],
           ]
         );
-
-
-
-
 
         //get the user from the database
         $user = $db->query('SELECT * FROM users WHERE email = :email', [
@@ -179,19 +133,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
       $data = $_SESSION['change_password_data'];
       // $email = $_SESSION['user_email'];
-      $new_password = $_SESSION['new_password'];
-      $confirm_password = $_SESSION['confirm_password'];
+      $new_password = $data['new_password'];
+      $confirm_password = $data['confirm_password'];
 
       // cheak if the email is already used
       $query = $db->query('SELECT * FROM users WHERE email = :email', [
         'email' => filter_var($data['email'], FILTER_SANITIZE_EMAIL)
       ])->fetch();
-
-
-      // if ($query) {
-      //   $errors['email'] = "البريد الإلكتروني مستخدم مسبقًا.";
-      //   $_SESSION['errors'] = "البريد الإلكتروني مستخدم مسبقًا";
-      // }  
 
       if (!empty($errors)) {
         $_SESSION['errors'] = $errors;
@@ -202,12 +150,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
       try {
         // require('controllers/parts/image_loader.php');
+
         $db->query(
           "UPDATE users SET password = :password WHERE email = :email",
           [
             'password' => password_hash($new_password, PASSWORD_BCRYPT),
             'email' => filter_var($data['email'], FILTER_SANITIZE_EMAIL)
           ]
+
         );
 
 
@@ -216,8 +166,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           'email' => $data['email']
         ])->fetch();
 
-        // 
-
         login($user);
 
         // clear the session data
@@ -225,8 +173,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // redirect to the home page
         $_SESSION['success'] = "تم تغيير كلمة المرور بنجاح. مرحبًا بك في موقعنا!";
-        $error = urlencode("تم تغيير كلمة المرور بنجاح. مرحبًا بك في موقعنا!");
-        header("Location: /?error=$error");
+        $success = urlencode("تم تغيير كلمة المرور بنجاح. مرحبًا بك في موقعنا!");
+        header("Location: /?success=$success");
         exit();
       } catch (PDOException $e) {
         error_log($e->getMessage());

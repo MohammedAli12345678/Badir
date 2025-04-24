@@ -3,6 +3,8 @@ use core\App ;
 use core\Database ;
 $db = App::resolve(Database::class);
 
+$search = $_GET['search'] ?? '';
+$filter = $_GET['filter'] ?? 'all';
 
 $page = "islamic_payments_index" ;
 if(!isset($_GET['page_number'])) $_GET['page_number'] = 1; // if page_number not set in $_GET
@@ -31,16 +33,16 @@ if(!isset($_SESSION['islamic_payments_count_all'])){
 }
 
 $pages_count['islamic_payments'] = $_SESSION['islamic_payments_count_all']/10 + 1;
+$has_next = !isset($_GET['page_number']) || $_GET['page_number'] + 1 >= $pages_count['islamic_payments'];
+$filtered = (!empty($search) || ($filter !== 'all') || (isset($_GET['submit']) && $_GET['submit'] == "foryou") ) ;
 
 try {
     // Get search and filter inputs from $_GET
-    $search = $_GET['search'] ?? '';
-    $filter = $_GET['filter'] ?? 'all';
 
     // Base Query
     $query = "SELECT * FROM islamic_payments WHERE 1=1";
 
-    if(!empty($search) || ($filter !== 'all') || (isset($_GET['submit']) && $_GET['submit'] == "foryou") ){
+    if($filtered){
         $params = [];
 
         // 🔎 Add Search Filter

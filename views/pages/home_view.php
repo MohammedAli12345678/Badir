@@ -138,7 +138,7 @@
             </a>
             <div class="donation-info">
               <div class="aghtha">
-                <h6>بادر</h6>
+                <h6><?= htmlspecialchars($categories[$campaign['category_id']]['name']) ?></h6>
                 <h5>رقم الحملة : <?= htmlspecialchars($campaign['campaign_id']) ?></h5>
                 <!-- <a href=""><img src="" alt=""></a> -->
               </div>
@@ -222,7 +222,7 @@
       </p>
 
       <div class="login_tbr3 ">
-      <?php  if ($_SESSION['user'] ?? false) : ?>
+      <?php  if (!isset($_SESSION['user'])) : ?>
         <div class="login_for_home_and_tbr3 box">
           <p>خطواتك الأولى نحو العطاء تبدأ من هنا.
             انشئ حساباَ واستكشف الفرص للمساهمة في الخير.<br>
@@ -238,7 +238,7 @@
             لا تتردد، تبرعك اليوم قد يغير حياة شخصاً، كن سبباً في سعادته.
           </p>
 
-          <a href="/charity_campaigns_donate">
+          <a href="/charity_campaigns_show?campaign_id=<?= $campaign_needest['campaign_id'] ?? "1" ?>">
             <button aria-label="تبرع الان">تبرع الان</button>
           </a>
         </div>

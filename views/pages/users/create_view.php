@@ -29,6 +29,13 @@ if (isset($_SESSION['ban_time']) && $_SESSION['ban_time'] > time()) {
 
       <!-- <div class="modal-content"> -->
       <h1>تسجيل مستخدم جديد</h1>
+      <?php
+          if (!empty($_GET)) {
+              foreach ($_GET as $key => $value) {
+                  echo "<h1 style='color:red'>".htmlspecialchars($value) . "</h1>";
+              }
+          }
+        ?>
       <form class="group" id="register-user-form" action="/users_verification" method="post" enctype="multipart/form-data">
         <div class="form-group box_h">
           <label for="username">اسم المستخدم:</label>

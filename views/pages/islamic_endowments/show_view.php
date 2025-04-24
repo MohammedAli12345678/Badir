@@ -79,7 +79,7 @@
         </div>
     </div>
     <div class="news" >
-    <h5>خبار المشروع</h5>
+    <h5>اخبار المشروع</h5>
         <div><p>تم جمع <?= htmlspecialchars(number_format((($endowments['0']['donate_cost']/$endowments['0']['cost'])*100) ,2) )?>% من التبرعات</p></div>
         <!-- <div>30%<p>تم الانتهاء من المرحله الاولى </p></div> -->
     </div>

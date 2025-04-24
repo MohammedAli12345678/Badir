@@ -26,7 +26,7 @@
       <input type="number" id="count" name="days" required min="1">
 
     <!-- النتيجة -->
-
+  </form>
     <div class="donate-section">
       <form action="/islamic_payments_checkout" method="get" class="donate-section" required>
         <input class="inp" type="number" name="cost" placeholder="$" required id="result">

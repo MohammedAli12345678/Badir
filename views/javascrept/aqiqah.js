@@ -6,7 +6,6 @@ const  dyah = 300000/meal_price ;
 
 
 function calculate(kafara) {
- alert(kafara);
     const result = document.getElementById("result");
     const countInput = document.getElementById("count");
     const count = parseInt(countInput.value);
@@ -14,7 +13,7 @@ function calculate(kafara) {
 
     // التحقق إذا لم يُدخل العدد أو أدخل عدد غير صحيح
     if (!count || count < 1) {
-      alert("يرجى إدخال عدد صحيح للكفارات المطلوبة.");
+      countInput.value = "1";
       countInput.focus();
       return; // نوقف التنفيذ
     }

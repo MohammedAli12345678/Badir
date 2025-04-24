@@ -8,7 +8,7 @@
 
   <section id="sadaqah-calculator" class="form_zakat">
   <!-- حسابة  الصدقه-->
-  <form >
+  <!-- <form > -->
       <h2>حاسبة الصدقة</h2>
       
       <!-- <label for="income">الدخل الشهري (بالريال)</label>
@@ -24,7 +24,7 @@
     </form>
     <form class="fromCart" action="/islamic_payments_addcart" method="post">
       <input type="hidden" name="islamic_payment_id" value="1">
-      <!-- <button type="submit" class="donate_cart" aria-label="السله"><img src="views/media/images/cart.png" alt=""></button> -->
+      <button type="submit" class="donate_cart" aria-label="السله"><img src="views/media/images/cart.png" alt=""></button>
     </form>
   </div>
 
@@ -68,7 +68,7 @@
         <li>أن تكون من مال حلال.</li>
         <li>عدم المنّ أو الرياء.</li>
       </ul>
-    </form>
+  </form>
 
   </section>
 </main>

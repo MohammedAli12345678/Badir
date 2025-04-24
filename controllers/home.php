@@ -77,6 +77,36 @@ try {
     $beneficiaries_project_campain['beneficiaries_count'] =
         $campaigns_statistics['complete']['complete'] +
         $projects_statistics['beneficiaries_count']['beneficiaries_count']; // اجمالي عدد المستفيدين من الحملات والمشاريغ
+    $campaign_needest = $db->query(
+        "SELECT 
+            c.campaign_id,
+            c.name,
+            c.short_description,
+            c.cost AS target_amount,
+            IFNULL(SUM(udc.cost), 0) AS collected_amount,
+            (IFNULL(SUM(udc.cost), 0) / c.cost * 100) AS achievement_percentage,
+            DATEDIFF(c.end_at, NOW()) AS days_remaining,
+            (c.cost - IFNULL(SUM(udc.cost), 0)) AS amount_needed,
+            ((c.cost - IFNULL(SUM(udc.cost), 0)) / c.cost) * 100 / 
+            (DATEDIFF(c.end_at, c.start_at) + 1) * 
+            (DATEDIFF(c.end_at, NOW()) + 1) AS priority_score
+        FROM 
+            campaigns c
+        LEFT JOIN 
+            users_donate_campaigns udc ON c.campaign_id = udc.campaign_id
+        WHERE 
+            c.state = 'active'
+            AND c.end_at < NOW()
+        GROUP BY 
+            c.campaign_id
+        HAVING 
+            achievement_percentage < 100
+        ORDER BY 
+            priority_score DESC,
+            days_remaining ASC,
+            achievement_percentage ASC
+        LIMIT 1;"
+        )->fetchAll()['0'];
 } catch (PDOException $e) {
     error_log($e->getMessage());
     $_SESSION['error'] = "حدث خطأ أثناء حفظ البيانات";
