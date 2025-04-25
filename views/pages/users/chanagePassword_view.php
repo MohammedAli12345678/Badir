@@ -12,7 +12,7 @@
       <div class="box_h">
         <div class="box_h">
         <label for="email">البريدالإلكتروني :</label>
-        <input id="email" type="email" name="email" placeholder="البريدالإلكتروني"  require>
+        <input id="email" type="email" name="email" placeholder="البريدالإلكتروني"  require value="<?= $_SESSION['user']['email']?? $_GET['email']?? "" ?>">
        </div>
         <div class="box_h">
         <label for="new_password">كلمة المرور الجديدة</label>

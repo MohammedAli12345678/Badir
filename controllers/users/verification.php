@@ -80,7 +80,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $_SESSION['user_data'] = $_POST;
     $_SESSION['file'] = $_FILES['photo'];
-
+    require('controllers/parts/image_loader.php');
+    $_SESSION['user_data']['photo'] = $filenamenew;
+    
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
       $error = urlencode("البريد الإلكتروني غير صالح");
       header("Location:/users_create_view?error={$error}");

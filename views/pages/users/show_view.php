@@ -19,7 +19,7 @@
         <label for="phone_number">رقم الهاتف :</label>
         <input id="phone_number" type="text" name="phone_number" placeholder="رقم الهاتف" value="<?= $users['phone']?>">
         </div>
-        <button class="btn_chang_password" id="btn_chang_password" name="btn_chang_password" aria-label="تغيير كلمة المرور">تغيير كلمة المرور </button>
+        <a href="/users_changePassword_view" class="btn_chang_password" id="btn_chang_password" name="btn_chang_password" aria-label="تغيير كلمة المرور">تغيير كلمة المرور </ش>
         </form>
         <!-- <div>
         <button class="btn_image" id="btn_image" name="btn_image" aria-label="ادخال الصورة">إختياري</button>

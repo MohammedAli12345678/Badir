@@ -15,6 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $db = App::resolve(Database::class);
 
   $data = $_SESSION['user_data'];
+  
 
   $errors = [];
   // cheak if the code is empty
@@ -61,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
       }
 
-
+      // $_FILES['photo'] = $_SESSION['file'];
       try {
         // require('controllers/parts/image_loader.php');
         $db->query(
@@ -96,7 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           [
             'username' => htmlspecialchars($data['username']),
             'password' => password_hash($data['password'], PASSWORD_BCRYPT),
-            'photo' => $filenamenew ?? "user.png",
+            'photo' => $filenamenew ?? $data['photo'] ?? "user.png",
             'email' => filter_var($data['email'], FILTER_SANITIZE_EMAIL),
             'type' => 'normal',
             'country' =>  htmlspecialchars($data['country']),
