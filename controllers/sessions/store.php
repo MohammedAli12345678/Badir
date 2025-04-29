@@ -8,28 +8,29 @@ $db  = App::resolve(Database::class);
 
 
 
-$erorrs = [];
+$errors = [];
 
 
 if (empty($_POST['email'])) {
-    $erorrs['email'] = "Please enter your email";
+    $errors['email'] = "الرجاء إدخال البريد الإلكتروني";
 }
 
 if (empty($_POST['password'])) {
-    $erorrs['password'] = "Please enter your password";
+    $errors['password'] = "الرجاء إدخال كلمة المرور";
 }
 
 
 if (! Validator::email($_POST['email'])) {
-    $erorrs['email'] = "not a valid email ";
+    $errors['email'] = "ليسى البريد الإلكتروني صحيح";
 }
 if (! Validator::string($_POST['password'])) {
-    $erorrs['password'] = "password is not valid ";
+    $errors['password'] = "ليسى كلمة المرور صحيحة";
 }
 
-if (! empty($erorrs)) {
-    require 'views/sessions/create_view.php';
-    return;
+if (!empty($errors)) {
+    $_SESSION['errors'] = $errors ;
+    header("Location:" . $_SERVER["HTTP_REFERER"]);
+    exit();
 }
 try {
     $user = $db->query("select * from users where email = :email ; ", [
@@ -45,10 +46,18 @@ if ($user) {
         logIn($user);
         header("Location: /");
         exit();
+    }else{
+        $errors['password'] = "لا يوجد كلمة مرور مطابقة لهذا";
     }
+}else {
+    $errors['email'] = "لا يوجد بريد إلكتروني مطابق لهذا";
 }
 
 
-$erorrs['email'] = "There No Matching Email Or Password Like this";
 
-require 'views/pages/users/index_view.php';
+$_SESSION['errors'] = $errors ;
+header("Location:" . $_SERVER["HTTP_REFERER"]);
+exit();
+
+
+

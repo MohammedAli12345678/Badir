@@ -25,6 +25,7 @@ try {
     abort(500);
 }
 
+visible($partners);
 
 // $note = $db->query("SELECT * from executive_partners where id = :id ", [
 //   'id' => $_GET['id'],

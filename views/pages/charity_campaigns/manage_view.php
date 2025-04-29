@@ -6,7 +6,7 @@
 <main class="main_manage">
   <section class="section_manage">
     <a class="add-link" href="/charity_campaigns_create">إضافة</a>
-
+    
     <!-- جدول الحملات الحالية -->
 
     <h2>الحملات الخيريه</h2>

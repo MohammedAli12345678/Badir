@@ -3,7 +3,7 @@ use core\App ;
 use core\Database ;
 $db = App::resolve(Database::class);
 
-$page = "charity_projects_index" ;
+$page = "charity_projects_manage" ;
 
 try {
     // Fetch categories for the dropdown
@@ -57,6 +57,14 @@ try {
         $query .= " AND u.user_id = :user_id";
         $params['user_id'] = $_SESSION['user']['id'];
     }
+
+    //add activation filter
+    if (isset($_GET['NotActivated'])) {
+        $query .= " AND  P.state <> 'active' ";
+    } else {
+        $query .= " AND  P.state = 'active' " ;
+    }
+
 
 
     // 👌 Finalize Query

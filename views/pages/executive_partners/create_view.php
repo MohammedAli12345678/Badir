@@ -15,16 +15,19 @@
 
                     <div id="group">
                         <form id="add-partner-form" action="/executive_partners_store" method="post" enctype="multipart/form-data">
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label for="partner_id">الشريك:</label>
                                 <select id="partner_id" name="partner_id" required>
-                                    <!-- Dynamic Partner List -->
-                                    <!-- Example: -->
                                     <?php foreach ($partners as $partner): ?>
                                         <option value="<?= $partner['partner_id'] ?>"><?= $partner['name']; ?></option>
                                     <?php endforeach; ?>
                                 </select>
                                 <h6 class="error_mseage"> <?= !empty($errors['partner_id']) ? 'خطاء : ' . $errors['partner_id'] : '' ?></h6>
+                            </div> -->
+                            <div class="form-group">
+                                <label for="name">الاسم :</label>
+                                <input type="text" id="city" name="name" required>
+                                <h6 class="error_mseage"> <?= !empty($errors['name']) ? 'خطاء : ' . $errors['name'] : '' ?></h6>
                             </div>
                             <div class="form-group">
                                 <label for="description">الوصف:</label>

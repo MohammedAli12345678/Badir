@@ -14,7 +14,6 @@ img {
 
 <main class="main_cart_view">
     <div class="div_cart_view">
-
     <label for="donation-cart" class="section-label visually-hidden">سلة التبرعات</label>
 
     <section id="donation-cart" class="projects-list">
@@ -95,7 +94,7 @@ img {
                 </div>
             </div>
         <?php endforeach; ?>
-        <h1>المدفوعات الاسلاميه:</h1>
+        <!-- <h1>المدفوعات الاسلاميه:</h1>
         <?php foreach ($islamic_payments as $islamic_payment): ?>
             <div class="project">
             <img src="views/media/images/<?= htmlspecialchars($islamic_payment['photo'] ?? "11.png") ?>" alt=" حملة " loading="lazy">
@@ -118,7 +117,7 @@ img {
                     </div>
                 </div>
             </div>
-        <?php endforeach; ?>
+        <?php endforeach; ?> -->
 
 
 

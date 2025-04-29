@@ -94,7 +94,7 @@ try {
         // 🎯 Add Category Filter (if a valid category is selected)
         if ($filter !== 'all' && is_numeric($filter)) {
             $query .= " AND P.category_id = :category_id";
-            $params['category_id'] = $filter;
+            $params['category_id'] = $filter - 1;
         }
 
         if (isset($_GET['submit']) && $_GET['submit'] == "foryou") {

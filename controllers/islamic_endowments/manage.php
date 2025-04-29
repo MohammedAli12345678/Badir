@@ -4,7 +4,7 @@ use core\Database ;
 $db = App::resolve(Database::class);
 
 
-$page = "islamic_endowments_index" ;
+$page = "islamic_endowments_manage" ;
 
 try {
     // Fetch categories for filtering
@@ -34,6 +34,11 @@ try {
         $params['user_id'] = $_SESSION['user']['id'];
     }
 
+    if (isset($_GET['NotActivated'])) {
+        $query .= " AND  state <> 'active' ";
+    } else {
+        $query .= " AND  state = 'active' " ;
+    }
 
     // 👌 Finalize Query
     $query .= " ORDER BY name ASC;";

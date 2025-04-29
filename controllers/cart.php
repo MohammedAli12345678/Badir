@@ -52,17 +52,17 @@ $endowments = $db->query(
 )->fetchAll(); // محتوى السلة من الأوقاف
 
 
-$islamic_payments = $db->query(
-    "SELECT distinct
-    c.user_id,c.islamic_payment_id, m.name ,m.short_description ,m.photo
-    FROM
-    users_cart_islamic_payments c JOIN islamic_payments m
-    WHERE
-    c.user_id = :user_id and c.islamic_payment_id = m.islamic_payment_id ;",
-    [
-        'user_id' =>filter_var( $_SESSION['user']['id'], FILTER_SANITIZE_NUMBER_INT),
-    ]
-)->fetchAll();
+// $islamic_payments = $db->query(
+//     "SELECT distinct
+//     c.user_id,c.islamic_payment_id, m.name ,m.short_description ,m.photo
+//     FROM
+//     users_cart_islamic_payments c JOIN islamic_payments m
+//     WHERE
+//     c.user_id = :user_id and c.islamic_payment_id = m.islamic_payment_id ;",
+//     [
+//         'user_id' =>filter_var( $_SESSION['user']['id'], FILTER_SANITIZE_NUMBER_INT),
+//     ]
+// )->fetchAll();
 
 
 

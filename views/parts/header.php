@@ -40,9 +40,16 @@ try {
                             </option>
                         <?php endforeach; ?>
                     </select>
-                    <?//php if ( false) : ?>
+                    <?php if ($_SESSION['user'] ?? false) : ?>
+                    <?php if ($_SESSION['user']['type'] == "admin" || $_SESSION['user']['type'] == "manager") : ?>
+                        <label for="NotActivated">Not Activated</label>
+                    <input type="checkbox" name="NotActivated" id="NotActivated">
+                    <?php endif; ?>
+                    <?php endif; ?>
+
+                    <? //php if ( false) : ?>
                         <!-- <button type="submit" name="submit" value="foryou" aria-label="خاصة بك">خاصه بك</button> -->
-                    <?php// endif; ?>
+                    <?php // endif; ?>
                 </form>
 
 

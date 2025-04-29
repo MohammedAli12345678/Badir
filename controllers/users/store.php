@@ -53,11 +53,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
       if ($query) {
         $errors['email'] = "البريد الإلكتروني مستخدم مسبقًا.";
-        $_SESSION['errors'] = "البريد الإلكتروني مستخدم مسبقًا";
       }
 
       if (!empty($errors)) {
-        $_SESSION['errors'] = $errors;
+        $_SESSION['errors'] = $errors ;
         header("Location:" . $_SERVER["HTTP_REFERER"]);
         exit();
       }
@@ -76,9 +75,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 city,
                 street,
                 phone,
-                notifications,
-                verification_code,
-                code_expiry
+                notifications
+                -- verification_code,
+                -- code_expiry
             ) VALUES (
                 :username,
                 :password,
@@ -89,9 +88,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 :city,
                 :street,
                 :phone,
-                :notifications,
-                :verification_code,
-                :code_expiry
+                :notifications
+                -- :verification_code,
+                -- :code_expiry
 
             )",
           [
@@ -104,9 +103,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'city' =>  htmlspecialchars($data['city']),
             'street' => htmlspecialchars($data['street']),
             'phone' => filter_var($data['phone'], FILTER_SANITIZE_STRING),
-            'notifications' => isset($data['notifications']) ? 1 : 0,
-            'verification_code' => $_SESSION['verification_code'],
-            'code_expiry' => $_SESSION['code_expiry'],
+            'notifications' => isset($data['notifications']) ? 1 : 0
+            // 'verification_code' => $_SESSION['verification_code'],
+            // 'code_expiry' => $_SESSION['code_expiry'],
           ]
         );
 
