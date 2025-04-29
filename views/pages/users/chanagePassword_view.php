@@ -7,7 +7,7 @@
   <section  class="user" id="show_user">
     <h1>تغير كلمة المرور</h1>
     <div class="group">
-      
+      <h2 style="color: red;"><?php if($_SERVER['REQUEST_METHOD'] === 'GET' && count($_GET) > 0): foreach($_GET as $key => $value){echo $value;}endif; ?></h2>
       <form action="/users_verification" method="POST">
       <div class="box_h">
         <div class="box_h">
