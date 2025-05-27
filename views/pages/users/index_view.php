@@ -12,12 +12,12 @@
       <div class="box_h">
         <label for="email"> : البريدالإلكتروني</label>
         <input id="email" type="text" name="email" placeholder="البريدالالكتروني" require>
-        <h6 class = "error_mseage"> <?= !empty($errors['email']) ? 'خطاء : '. $errors['email'] : '' ?></h6>
+        <h6 class = "error_mseage"> <?= !empty($errors['email']) ? 'خطأ : '. $errors['email'] : '' ?></h6>
       </div>
       <div class="box_h">
         <label for="password">ادخل كلمة المرور : </label>
         <input id="password" type="password" name="password" placeholder="كلمة المرور" require>
-        <h6 class = "error_mseage"> <?= !empty($errors['password']) ? 'خطاء : '. $errors['password'] : '' ?></h6>
+        <h6 class = "error_mseage"> <?= !empty($errors['password']) ? 'خطأ : '. $errors['password'] : '' ?></h6>
       </div>
         <button class="btn_log_in" id="btn_log_in" aria-label="تسجيل دخول" require >تسجيل دخول</button>
         <div class="link_forgot_password_link_log_in">

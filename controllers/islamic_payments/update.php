@@ -3,7 +3,7 @@
 $heading = "update test";
 
 
-use core\App ;
+use core\App;
 use core\Database;
 
 $db = App::resolve(Database::class);
@@ -47,19 +47,19 @@ if (isset($_POST['payment_date']) && !strtotime($_POST['payment_date'])) {
     $errors["payment_date"] = "تاريخ الدفع غير صالح";
 }
 
-// معالجة الأخطاء
+// معالجة الأخطأ
 // if (!empty($errors)) {
 //     require "views/pages/islamic_payments/edit_view.php";
 //     die();
 // }
 if (!empty($errors)) {
     $_SESSION['errors'] = $errors;
-    header("Location:". $_SERVER["HTTP_REFERER"]);
+    header("Location:" . $_SERVER["HTTP_REFERER"]);
     exit();
 }
 
 try {
-    require('controllers/parts/image_loader.php') ;
+    require('controllers/parts/image_loader.php');
 
     $db->query(
         "UPDATE islamic_payments
@@ -87,7 +87,6 @@ try {
             'islamic_payment_id' => $_POST['islamic_payment_id']
         ]
     );
-
 } catch (PDOException $e) {
     error_log($e->getMessage());
     abort(500);
@@ -96,7 +95,5 @@ try {
 
 
 
-header("Location:". $_SERVER["HTTP_REFERER"]);
+header("Location:" . $_SERVER["HTTP_REFERER"]);
 die();
-
-

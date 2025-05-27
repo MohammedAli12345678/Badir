@@ -2,7 +2,8 @@
 <?php require('views/parts/adminbar.php') ?>
 <?php require('views/parts/navgtion.php') ?>
 <?php require('views/parts/header.php') ?>
-<?php $errors = ($_SESSION['errors'] ?? '' ) ; unset($_SESSION['errors']) ; ?>
+<?php $errors = ($_SESSION['errors'] ?? '');
+unset($_SESSION['errors']); ?>
 
 
 <main>
@@ -22,58 +23,58 @@
                                         <option value="<?= $partner['partner_id'] ?>"><?= $partner['name']; ?></option>
                                     <?php endforeach; ?>
                                 </select>
-                                <h6 class="error_mseage"> <?= !empty($errors['partner_id']) ? 'خطاء : ' . $errors['partner_id'] : '' ?></h6>
+                                <h6 class="error_mseage"> <?= !empty($errors['partner_id']) ? 'خطأ : ' . $errors['partner_id'] : '' ?></h6>
                             </div> -->
                             <div class="form-group">
                                 <label for="name">الاسم :</label>
                                 <input type="text" id="city" name="name" required>
-                                <h6 class="error_mseage"> <?= !empty($errors['name']) ? 'خطاء : ' . $errors['name'] : '' ?></h6>
+                                <h6 class="error_mseage"> <?= !empty($errors['name']) ? 'خطأ : ' . $errors['name'] : '' ?></h6>
                             </div>
                             <div class="form-group">
                                 <label for="description">الوصف:</label>
                                 <textarea id="description" name="description" rows="2" required></textarea>
-                                <h6 class="error_mseage"> <?= !empty($errors['description']) ? 'خطاء : ' . $errors['description'] : '' ?></h6>
+                                <h6 class="error_mseage"> <?= !empty($errors['description']) ? 'خطأ : ' . $errors['description'] : '' ?></h6>
                             </div>
                             <div class="form-group">
                                 <label for="more_information">معلومات إضافية:</label>
                                 <textarea id="more_information" name="more_information" rows="2"></textarea>
-                                <h6 class="error_mseage"> <?= !empty($errors['more_information']) ? 'خطاء : ' . $errors['more_information'] : '' ?></h6>
+                                <h6 class="error_mseage"> <?= !empty($errors['more_information']) ? 'خطأ : ' . $errors['more_information'] : '' ?></h6>
                             </div>
 
                             <div class="form-group">
                                 <label for="email">البريد الإلكتروني:</label>
                                 <input type="email" id="email" name="email" required>
-                                <h6 class="error_mseage"> <?= !empty($errors['email']) ? 'خطاء : ' . $errors['email'] : '' ?></h6>
+                                <h6 class="error_mseage"> <?= !empty($errors['email']) ? 'خطأ : ' . $errors['email'] : '' ?></h6>
                             </div>
                             <div class="form-group">
                                 <label for="directorate">المديرية:</label>
                                 <input type="text" id="directorate" name="directorate" required>
-                                <h6 class="error_mseage"> <?= !empty($errors['directorate']) ? 'خطاء : ' . $errors['directorate'] : '' ?></h6>
+                                <h6 class="error_mseage"> <?= !empty($errors['directorate']) ? 'خطأ : ' . $errors['directorate'] : '' ?></h6>
                             </div>
                             <div class="form-group">
                                 <label for="country">الدولة:</label>
                                 <input type="text" id="country" name="country" required>
-                                <h6 class="error_mseage"> <?= !empty($errors['country']) ? 'خطاء : ' . $errors['country'] : '' ?></h6>
+                                <h6 class="error_mseage"> <?= !empty($errors['country']) ? 'خطأ : ' . $errors['country'] : '' ?></h6>
                             </div>
                             <div class="form-group">
                                 <label for="city">المدينة:</label>
                                 <input type="text" id="city" name="city" required>
-                                <h6 class="error_mseage"> <?= !empty($errors['city']) ? 'خطاء : ' . $errors['city'] : '' ?></h6>
+                                <h6 class="error_mseage"> <?= !empty($errors['city']) ? 'خطأ : ' . $errors['city'] : '' ?></h6>
                             </div>
                             <div class="form-group">
                                 <label for="street">الشارع:</label>
                                 <input type="text" id="street" name="street" required>
-                                <h6 class="error_mseage"> <?= !empty($errors['street']) ? 'خطاء : ' . $errors['street'] : '' ?></h6>
+                                <h6 class="error_mseage"> <?= !empty($errors['street']) ? 'خطأ : ' . $errors['street'] : '' ?></h6>
                             </div>
                             <div class="form-group">
                                 <label for="phone">رقم الهاتف:</label>
                                 <input type="text" id="phone" name="phone" required>
-                                <h6 class="error_mseage"> <?= !empty($errors['phone']) ? 'خطاء : ' . $errors['phone'] : '' ?></h6>
+                                <h6 class="error_mseage"> <?= !empty($errors['phone']) ? 'خطأ : ' . $errors['phone'] : '' ?></h6>
                             </div>
                             <div class="form-group">
                                 <label for="photo">صورة الشريك:</label>
                                 <input type="file" id="photo" name="photo" accept="image/*" required>
-                                <h6 class="error_mseage"> <?= !empty($errors['photo']) ? 'خطاء : ' . $errors['photo'] : '' ?></h6>
+                                <h6 class="error_mseage"> <?= !empty($errors['photo']) ? 'خطأ : ' . $errors['photo'] : '' ?></h6>
                             </div>
                             <div class="form-group">
                                 <button type="submit" name="submit" aria-label="اضافة">إضافة شريك</button>

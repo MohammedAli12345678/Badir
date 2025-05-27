@@ -16,26 +16,26 @@ if (isset($_SESSION['ban_time']) && $_SESSION['ban_time'] > time()) {
   <!-- انشاء حساب جديد -->
   <section class="user">
 
-  <div class="modal-content">
-    <!-- <h2>تسجيل مستخدم جديد</h2>
+    <div class="modal-content">
+      <!-- <h2>تسجيل مستخدم جديد</h2>
       <form id="register-user-form" action="/users_verification" method="post" enctype="multipart/form-data">
         <div class="form-group">
           <label for="username">اسم المستخدم:</label>
           <input type="text" id="username" name="username" required>
         </div> -->
 
-    <h6 class="error_mseage"> <?= !empty($errors['username']) ? 'خطاء : ' . $errors['username'] : '' ?></h6>
-    <!-- <section class="user"> -->
+      <h6 class="error_mseage"> <?= !empty($errors['username']) ? 'خطأ : ' . $errors['username'] : '' ?></h6>
+      <!-- <section class="user"> -->
 
       <!-- <div class="modal-content"> -->
       <h1>تسجيل مستخدم جديد</h1>
       <?php
-          if (!empty($_GET)) {
-              foreach ($_GET as $key => $value) {
-                  echo "<h1 style='color:red'>".htmlspecialchars($value) . "</h1>";
-              }
-          }
-        ?>
+      if (!empty($_GET)) {
+        foreach ($_GET as $key => $value) {
+          echo "<h1 style='color:red'>" . htmlspecialchars($value) . "</h1>";
+        }
+      }
+      ?>
       <form class="group" id="register-user-form" action="/users_verification" method="post" enctype="multipart/form-data">
         <div class="form-group box_h">
           <label for="username">اسم المستخدم:</label>
@@ -45,7 +45,7 @@ if (isset($_SESSION['ban_time']) && $_SESSION['ban_time'] > time()) {
         <!-- <div class="form-group">
               <label for="password">كلمة المرور:</label>
               <input type="password" id="password" name="password" required>
-              <h6 class="error_mseage"> <?= !empty($errors['password']) ? 'خطاء : ' . $errors['password'] : '' ?></h6>
+              <h6 class="error_mseage"> <?= !empty($errors['password']) ? 'خطأ : ' . $errors['password'] : '' ?></h6>
             </div> -->
 
         <div class="form-group box_h">
@@ -58,13 +58,13 @@ if (isset($_SESSION['ban_time']) && $_SESSION['ban_time'] > time()) {
             <div class="form-group">
               <label for="email">البريد الإلكتروني:</label>
               <input type="email" id="email" name="email" required>
-              <h6 class="error_mseage"> <?= !empty($errors['email']) ? 'خطاء : ' . $errors['email'] : '' ?></h6>
+              <h6 class="error_mseage"> <?= !empty($errors['email']) ? 'خطأ : ' . $errors['email'] : '' ?></h6>
             </div> -->
 
         <div class="form-group box_h">
           <label for="email">البريد الإلكتروني:</label>
           <input type="email" id="email" name="email" required>
-          <h6 class="error_mseage"> <?= !empty($errors['email']) ? 'خطاء : ' . $errors['email'] : '' ?></h6>
+          <h6 class="error_mseage"> <?= !empty($errors['email']) ? 'خطأ : ' . $errors['email'] : '' ?></h6>
         </div>
 
         <!-- 
@@ -75,7 +75,7 @@ if (isset($_SESSION['ban_time']) && $_SESSION['ban_time'] > time()) {
                 <option value="admin">مسؤول</option>
                 <option value="manager">مدير</option>
               </select>
-              <h6 class="error_mseage"> <?= !empty($errors['type']) ? 'خطاء : ' . $errors['type'] : '' ?></h6>
+              <h6 class="error_mseage"> <?= !empty($errors['type']) ? 'خطأ : ' . $errors['type'] : '' ?></h6>
             </div> -->
 
         <!-- <div class="form-group box_h">
@@ -91,7 +91,7 @@ if (isset($_SESSION['ban_time']) && $_SESSION['ban_time'] > time()) {
             <div class="form-group">
               <label for="country">الدولة:</label>
               <input type="text" id="country" name="country" required>
-              <h6 class="error_mseage"> <?= !empty($errors['country']) ? 'خطاء : ' . $errors['country'] : '' ?></h6>
+              <h6 class="error_mseage"> <?= !empty($errors['country']) ? 'خطأ : ' . $errors['country'] : '' ?></h6>
             </div> -->
 
         <div class="form-group box_h">
@@ -103,7 +103,7 @@ if (isset($_SESSION['ban_time']) && $_SESSION['ban_time'] > time()) {
         <!-- <div class="form-group">
               <label for="city">المدينة:</label>
               <input type="text" id="city" name="city" required>
-              <h6 class="error_mseage"> <?= !empty($errors['city']) ? 'خطاء : ' . $errors['city'] : '' ?></h6>
+              <h6 class="error_mseage"> <?= !empty($errors['city']) ? 'خطأ : ' . $errors['city'] : '' ?></h6>
 
             </div> -->
 
@@ -115,7 +115,7 @@ if (isset($_SESSION['ban_time']) && $_SESSION['ban_time'] > time()) {
         <!-- <div class="form-group">
               <label for="street">الشارع:</label>
               <input type="text" id="street" name="street" required>
-              <h6 class="error_mseage"> <?= !empty($errors['street']) ? 'خطاء : ' . $errors['street'] : '' ?></h6>
+              <h6 class="error_mseage"> <?= !empty($errors['street']) ? 'خطأ : ' . $errors['street'] : '' ?></h6>
             </div> -->
 
         <div class="form-group box_h">
@@ -127,7 +127,7 @@ if (isset($_SESSION['ban_time']) && $_SESSION['ban_time'] > time()) {
             <div class="form-group">
               <label for="phone">رقم الهاتف:</label>
               <input type="text" id="phone" name="phone" required>
-              <h6 class="error_mseage"> <?= !empty($errors['phone']) ? 'خطاء : ' . $errors['phone'] : '' ?></h6>
+              <h6 class="error_mseage"> <?= !empty($errors['phone']) ? 'خطأ : ' . $errors['phone'] : '' ?></h6>
             </div> -->
 
         <div class="form-group box_h">
@@ -138,7 +138,7 @@ if (isset($_SESSION['ban_time']) && $_SESSION['ban_time'] > time()) {
         <!-- <div class="form-group">
               <label for="photo">صورة المستخدم:</label>
               <input type="file" id="photo" name="photo" accept="image/*">
-              <h6 class="error_mseage"> <?= !empty($errors['photo']) ? 'خطاء : ' . $errors['photo'] : '' ?></h6>
+              <h6 class="error_mseage"> <?= !empty($errors['photo']) ? 'خطأ : ' . $errors['photo'] : '' ?></h6>
             </div> -->
 
         <div class="form-group box_h">
@@ -150,7 +150,7 @@ if (isset($_SESSION['ban_time']) && $_SESSION['ban_time'] > time()) {
               <label for="notifications">استقبال الإشعارات:</label>
               <input type="checkbox" id="notifications" name="notifications" checked>
               <label for="notifications">نعم</label>
-              <h6 class="error_mseage"> <?= !empty($errors['notifications']) ? 'خطاء : ' . $errors['notifications'] : '' ?></h6>
+              <h6 class="error_mseage"> <?= !empty($errors['notifications']) ? 'خطأ : ' . $errors['notifications'] : '' ?></h6>
 
             </div> -->
 
@@ -164,6 +164,6 @@ if (isset($_SESSION['ban_time']) && $_SESSION['ban_time'] > time()) {
       </form>
       <!-- </div> -->
 
-    </section>
+  </section>
 </main>
 <?php require('views/parts/footer.php') ?>

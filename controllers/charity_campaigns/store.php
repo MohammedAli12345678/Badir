@@ -55,7 +55,7 @@ if (empty($_POST['cost'])) {
 //     $errors['photo'] = "رابط الصورة غير صالح. يجب أن يكون رابطاً صحيحاً";
 // }
 //dd($errors);
-// إذا كان هناك أخطاء، عرضها
+// إذا كان هناك أخطأ، عرضها
 // if (!empty($errors)) {
 //     require "views/pages/charity_campaigns/create_view.php";
 //     die();

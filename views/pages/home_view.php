@@ -251,6 +251,23 @@
 
 </main>
 
+<script>
+  // عند إرسال أي فورم: نحفظ موضع التمرير
+  document.querySelectorAll("form").forEach(form => {
+    form.addEventListener("submit", () => {
+      localStorage.setItem("scrollY", window.scrollY);
+    });
+  });
+
+  // عند تحميل الصفحة: نرجع لنفس المكان
+  window.addEventListener("load", () => {
+    const scrollY = localStorage.getItem("scrollY");
+    if (scrollY) {
+      window.scrollTo(0, parseInt(scrollY));
+      localStorage.removeItem("scrollY");
+    }
+  });
+</script>
 
 
 
