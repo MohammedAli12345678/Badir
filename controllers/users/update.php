@@ -41,6 +41,8 @@ if (!empty($errors)) {
     header("Location:" . $_SERVER["HTTP_REFERER"]);
     exit();
 }
+if(!isset($_SESSION['user']) || $_SESSION['user']['user_type'] != 'admin' || $_SESSION['user']['user_type'] != 'manager'
+ || $_SESSION['user']['user_id'] != $_POST['user_id'])  header("Location: /home_view");
 
 
 

@@ -35,33 +35,33 @@ $router->get('/charity_campaigns_store_view', 'views/pages/charity_campaigns/sto
 $router->get('/charity_campaigns_update_view', 'views/pages/charity_campaigns/update_view.php')->only('admin');
 
 
-$router->get('/charity_projects_create_view', 'views/pages/charity_projects/create_view.php');
-$router->get('/charity_projects_destroy_view', 'views/pages/charity_projects/destroy_view.php');
-$router->get('/charity_projects_edit_view', 'views/pages/charity_projects/edit_view.php');
-$router->get('/charity_projects_manage_view', 'views/pages/charity_projects/manage_view.php');
+$router->get('/charity_projects_create_view', 'views/pages/charity_projects/create_view.php')->only('admin');
+$router->get('/charity_projects_destroy_view', 'views/pages/charity_projects/destroy_view.php')->only('admin');
+$router->get('/charity_projects_edit_view', 'views/pages/charity_projects/edit_view.php')->only('admin');
+$router->get('/charity_projects_manage_view', 'views/pages/charity_projects/manage_view.php')->only('admin');
 $router->get('/charity_projects_index_view', 'views/pages/charity_projects/index_view.php');
 $router->get('/charity_projects_show_view', 'views/pages/charity_projects/show_view.php');
 $router->get('/charity_projects_list_view', 'views/pages/charity_projects/list_view.php');
-$router->get('/charity_projects_store_view', 'views/pages/charity_projects/store_view.php');
-$router->get('/charity_projects_update_view', 'views/pages/charity_projects/update_view.php');
+$router->get('/charity_projects_store_view', 'views/pages/charity_projects/store_view.php')->only('admin');
+$router->get('/charity_projects_update_view', 'views/pages/charity_projects/update_view.php')->only('admin');
 
 
-$router->get('/executive_partners_create_view', 'views/pages/executive_partners/create_view.php');
-$router->get('/executive_partners_destroy_view', 'views/pages/executive_partners/destroy_view.php');
-$router->get('/executive_partners_edit_view', 'views/pages/executive_partners/edit_view.php');
-$router->get('/executive_partners_index_view', 'views/pages/executive_partners/index_view.php');
+$router->get('/executive_partners_create_view', 'views/pages/executive_partners/create_view.php')->only('admin');
+$router->get('/executive_partners_destroy_view', 'views/pages/executive_partners/destroy_view.php')->only('admin');
+$router->get('/executive_partners_edit_view', 'views/pages/executive_partners/edit_view.php')->only('admin');
+$router->get('/executive_partners_index_view', 'views/pages/executive_partners/index_view.php')->only('admin');
 $router->get('/executive_partners_show_view', 'views/pages/executive_partners/show_view.php');
-$router->get('/executive_partners_store_view', 'views/pages/executive_partners/store_view.php');
-$router->get('/executive_partners_update_view', 'views/pages/executive_partners/update_view.php');
+$router->get('/executive_partners_store_view', 'views/pages/executive_partners/store_view.php')->only('admin');
+$router->get('/executive_partners_update_view', 'views/pages/executive_partners/update_view.php')->only('admin');
 
 
-$router->get('/islamic_endowments_create_view', 'views/pages/islamic_endowments/create_view.php');
-$router->get('/islamic_endowments_destroy_view', 'views/pages/islamic_endowments/destroy_view.php');
-$router->get('/islamic_endowments_edit_view', 'views/pages/islamic_endowments/edit_view.php');
+$router->get('/islamic_endowments_create_view', 'views/pages/islamic_endowments/create_view.php')->only('admin');
+$router->get('/islamic_endowments_destroy_view', 'views/pages/islamic_endowments/destroy_view.php')->only('admin');
+$router->get('/islamic_endowments_edit_view', 'views/pages/islamic_endowments/edit_view.php')->only('admin');
 $router->get('/islamic_endowments_index_view', 'views/pages/islamic_endowments/index_view.php');
 $router->get('/islamic_endowments_show_view', 'views/pages/islamic_endowments/show_view.php');
 $router->get('/islamic_endowments_list_view', 'views/pages/islamic_endowments/list_view.php');
-$router->get('/islamic_endowments_store_view', 'views/pages/islamic_endowments/store_view.php');
+$router->get('/islamic_endowments_store_view', 'views/pages/islamic_endowments/store_view.php')->only('admin');
 $router->get('/islamic_endowments_update_view', 'views/pages/islamic_endowments/update_view.php')->only('admin');
 
 

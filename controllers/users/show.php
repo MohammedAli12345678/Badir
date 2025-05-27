@@ -32,6 +32,9 @@ try {
   error_log($e->getMessage());
   abort(500);
 }
+if(!isset($_SESSION['user']) || $_SESSION['user']['user_type'] != 'admin' || $_SESSION['user']['user_type'] != 'manager'
+ || $_SESSION['user']['user_id'] != $_GET['user_id'])  header("Location: /home_view");
+
 // echo "<br><br><br><br><br><br><br><br>" . $_SESSION['user_id'] ."<pre>";
 // print_r($users);
 // print_r($_SESSION);
