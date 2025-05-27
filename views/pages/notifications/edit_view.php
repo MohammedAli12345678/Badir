@@ -32,7 +32,7 @@ unset($_SESSION['errors']); ?>
             <label for="photo">صورة مرفقة:</label>
             <input type="file" id="photo" name="photo" accept="image/*">
             <?php if (!empty($notification['photo'])): ?>
-              <img src="uploads/<?= htmlspecialchars($notification['photo']) ?>" alt="صورة الإشعار" width="100">
+              <img src="views/media/images/<?= htmlspecialchars($notification['photo']) ?>" alt="صورة الإشعار" width="100">
             <?php endif; ?>
             <h6 class="error_mseage"> <?= !empty($errors['photo']) ? 'خطأ : ' . $errors['photo'] : '' ?></h6>
           </div>

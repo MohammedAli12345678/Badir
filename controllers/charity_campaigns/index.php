@@ -105,7 +105,6 @@ try {
     // 👌 Finalize Query
 
     // Execute the query
-    
 
 } catch (PDOException $e) {
     error_log($e->getMessage());

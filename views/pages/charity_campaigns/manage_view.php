@@ -44,14 +44,14 @@
                 <ul>
                   <li>
                     <form action="/charity_campaigns_show" method="get">
-                      <input type="hidden" name="" value="">
+                      <!-- <input type="hidden" name="" value=""> -->
                       <input type="hidden" name="campaign_id" value="<?= htmlspecialchars($campaign['campaign_id']) ?>">
                       <button type="submit" aria-label="عرض">عرض</button>
                     </form>
                   </li>
                   <li>
                     <form action="/charity_campaigns_edit" method="get">
-                      <input type="hidden" name="" value="">
+                      <!-- <input type="hidden" name="" value=""> -->
                       <input type="hidden" name="campaign_id" value="<?= htmlspecialchars($campaign['campaign_id']) ?>">
                       <button type="submit" aria-label="تعديل">تعديل</button>
                     </form>

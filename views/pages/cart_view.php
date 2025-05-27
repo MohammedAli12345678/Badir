@@ -30,7 +30,7 @@ img {
                     <p><strong>نوع المشروع:</strong> تعليمي</p>
                     <div class="input_delet">
                         <div class="donate-section">
-                            <form action="/charity_campaigns_donate" method="post">
+                            <form action="/charity_campaigns_checkout" method="get">
                                 <input class="inp" type="number" name="cost" placeholder="$">
                                 <input type="hidden" name="campaign_id" value="<?= htmlspecialchars($campaign['campaign_id']) ?>">
                                 <button type="submit" aria-label="تبرع الان">تبرع الأن</button>
@@ -55,7 +55,7 @@ img {
                     <p><strong>نوع المشروع:</strong> تعليمي</p>
                     <div class="input_delet">
                         <div class="donate-section">
-                            <form action="/charity_projects_donate" method="post">
+                            <form action="/charity_projects_checkout" method="get">
                                 <input class="inp" type="number" name="cost" placeholder="$">
                                 <input type="hidden" name="project_id" value="<?= htmlspecialchars($project['project_id']) ?>">
                                 <button type="submit" aria-label="تبرع الان">تبرع الأن</button>
@@ -80,7 +80,7 @@ img {
                     <p><strong>نوع المشروع:</strong> تعليمي</p>
                     <div class="input_delet">
                         <div class="donate-section">
-                            <form action="/charity_endowments_donate" method="post">
+                            <form action="/islamic_endowments_checkout" method="get">
                                 <input class="inp" type="number" name="cost" placeholder="$">
                                 <input type="hidden" name="endowment_id" value="<?= htmlspecialchars($endowment['endowment_id']) ?>">
                                 <button type="submit" aria-label="تبرع الان">تبرع الأن</button>

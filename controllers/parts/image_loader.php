@@ -15,7 +15,6 @@ if (in_array($fileActual, $allow)) {
             $filenamenew = uniqid('', true) . "." . $fileActual;
             $fileDestination = __DIR__ . '/../../views/media/images/' . $filenamenew;
 
-            echo $fileDestination;
             move_uploaded_file($tmp, $fileDestination);
         } else {
             echo "your file is too big";
@@ -24,7 +23,9 @@ if (in_array($fileActual, $allow)) {
         echo "there was an error uploading your file";
     }
 } else {
-    abort(400);
+    unset($filenamenew);
+    $_SESSION['error'][] = "no file was uploaded";
+    //abort(400);
 }
 } else {
 echo "error";

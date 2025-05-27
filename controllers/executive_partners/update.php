@@ -11,7 +11,7 @@ $db = App::resolve(Database::class);
 
 
 
-require('controllers/parts/image_loader.php') ;
+//require('controllers/parts/image_loader.php') ;
 
 $errors = [];
 

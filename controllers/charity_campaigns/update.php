@@ -95,7 +95,7 @@ try {
             'start_at' => $_POST['start_at'] ?? null,
             'stop_at' => $_POST['stop_at'] ?? null,
             'end_at' => $_POST['end_at'] ?? null,
-            'photo' => $filenamenew ?? null,
+            'photo' => $filenamenew ?? null, 
             'campaign_id' => $_POST['campaign_id']
         ]
     );
