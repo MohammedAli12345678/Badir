@@ -52,7 +52,7 @@ unset($_SESSION['errors']); ?>
             <label for="photo">صورة الدفع:</label>
             <input type="file" id="photo" name="photo" accept="image/*">
             <?php if (!empty($payment['photo'])): ?>
-              <img src="/views/media/images/<?= htmlspecialchars($payment['photo']) ?>" alt="صورة الدفع" width="100">
+              <img src="/views/media/images<?= htmlspecialchars($payment['photo']) ?>" alt="صورة الدفع" width="100">
             <?php endif; ?>
             <h6 class="error_mseage"> <?= !empty($errors['photo']) ? 'خطأ : ' . $errors['photo'] : '' ?></h6>
           </div>

@@ -86,7 +86,7 @@
                         <input type="file" id="photo" name="photo" accept="image/*">
                         <input type="hidden" name="old_photo" value="<?= $campaign['photo'] ?? '' ?>">
                         <?php if (!empty($campaign['photo'])): ?>
-                            <img src="views/media/images/<?= htmlspecialchars($campaign['photo']) ?>" alt="Campaign Photo" width="100">
+                            <img src="views/media/images<?= htmlspecialchars($campaign['photo']) ?>" alt="Campaign Photo" width="100">
                         <?php endif; ?>
                         <h6 class = "error_mseage"> <?= !empty($errors['photo']) ? 'خطأ : '. $errors['photo'] : '' ?></h6>
                     </div>

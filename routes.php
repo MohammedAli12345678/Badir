@@ -24,15 +24,15 @@ $router->get('/cards_store_view', 'views/pages/cards/store_view.php');
 $router->get('/cards_update_view', 'views/pages/cards/update_view.php');
 
 
-$router->get('/charity_campaigns_create_view', 'views/pages/charity_campaigns/create_view.php');
-$router->get('/charity_campaigns_destroy_view', 'views/pages/charity_campaigns/destroy_view.php');
-$router->get('/charity_campaigns_edit_view', 'views/pages/charity_campaigns/edit_view.php');
-$router->get('/charity_campaigns_manage_view', 'views/pages/charity_campaigns/manage_view.php');
+$router->get('/charity_campaigns_create_view', 'views/pages/charity_campaigns/create_view.php')->only('admin');
+$router->get('/charity_campaigns_destroy_view', 'views/pages/charity_campaigns/destroy_view.php')->only('admin');
+$router->get('/charity_campaigns_edit_view', 'views/pages/charity_campaigns/edit_view.php')->only('admin');
+$router->get('/charity_campaigns_manage_view', 'views/pages/charity_campaigns/manage_view.php')->only('admin');
 $router->get('/charity_campaigns_index_view', 'views/pages/charity_campaigns/index_view.php');
 $router->get('/charity_campaigns_show_view', 'views/pages/charity_campaigns/show_view.php');
 $router->get('/charity_campaigns_list_view', 'views/pages/charity_campaigns/list_view.php');
-$router->get('/charity_campaigns_store_view', 'views/pages/charity_campaigns/store_view.php');
-$router->get('/charity_campaigns_update_view', 'views/pages/charity_campaigns/update_view.php');
+$router->get('/charity_campaigns_store_view', 'views/pages/charity_campaigns/store_view.php')->only('admin');
+$router->get('/charity_campaigns_update_view', 'views/pages/charity_campaigns/update_view.php')->only('admin');
 
 
 $router->get('/charity_projects_create_view', 'views/pages/charity_projects/create_view.php');
@@ -62,12 +62,12 @@ $router->get('/islamic_endowments_index_view', 'views/pages/islamic_endowments/i
 $router->get('/islamic_endowments_show_view', 'views/pages/islamic_endowments/show_view.php');
 $router->get('/islamic_endowments_list_view', 'views/pages/islamic_endowments/list_view.php');
 $router->get('/islamic_endowments_store_view', 'views/pages/islamic_endowments/store_view.php');
-$router->get('/islamic_endowments_update_view', 'views/pages/islamic_endowments/update_view.php');
+$router->get('/islamic_endowments_update_view', 'views/pages/islamic_endowments/update_view.php')->only('admin');
 
 
-$router->get('/islamic_payments_create_view', 'views/pages/islamic_payments/create_view.php');
-$router->get('/islamic_payments_destroy_view', 'views/pages/islamic_payments/destroy_view.php');
-$router->get('/islamic_payments_edit_view', 'views/pages/islamic_payments/edit_view.php');
+$router->get('/islamic_payments_create_view', 'views/pages/islamic_payments/create_view.php')->only('admin');
+$router->get('/islamic_payments_destroy_view', 'views/pages/islamic_payments/destroy_view.php')->only('admin');
+$router->get('/islamic_payments_edit_view', 'views/pages/islamic_payments/edit_view.php')->only('admin');
 $router->get('/islamic_payments_index_view', 'views/pages/islamic_payments/index_view.php');
 $router->get('/islamic_payments_show_view', 'views/pages/islamic_payments/show_view.php');
 $router->get('/islamic_payments_zakat_view', 'views/pages/islamic_payments/zakat_view.php');
@@ -77,44 +77,36 @@ $router->get('/islamic_payments_fidya_view', 'views/pages/islamic_payments/fidya
 $router->get('/islamic_payments_aqiqah_view', 'views/pages/islamic_payments/aqiqah_view.php');
 $router->get('/islamic_payments_list_view', 'views/pages/islamic_payments/list_view.php');
 $router->get('/islamic_payments_store_view', 'views/pages/islamic_payments/store_view.php');
-$router->get('/islamic_payments_update_view', 'views/pages/islamic_payments/update_view.php');
+$router->get('/islamic_payments_update_view', 'views/pages/islamic_payments/update_view.php')->only('admin');
 
 
-$router->get('/items_create_view', 'views/pages/items/create_view.php');
-$router->get('/items_destroy_view', 'views/pages/items/destroy_view.php');
-$router->get('/items_edit_view', 'views/pages/items/edit_view.php');
-$router->get('/items_index_view', 'views/pages/items/index_view.php');
-$router->get('/items_show_view', 'views/pages/items/show_view.php');
-$router->get('/items_store_view', 'views/pages/items/store_view.php');
-$router->get('/items_update_view', 'views/pages/items/update_view.php');
+
+$router->get('/statistics_create_view', 'views/pages/statistics/create_view.php')->only('manager');
+$router->get('/statistics_destroy_view', 'views/pages/statistics/destroy_view.php')->only('manager');
+$router->get('/statistics_edit_view', 'views/pages/statistics/edit_view.php')->only('manager');
+$router->get('/statistics_index_view', 'views/pages/statistics/index_view.php')->only('manager');
+$router->get('/statistics_show_view', 'views/pages/statistics/show_view.php')->only('manager');
+$router->get('/statistics_store_view', 'views/pages/statistics/store_view.php')->only('manager');
+$router->get('/statistics_update_view', 'views/pages/statistics/update_view.php')->only('manager');
 
 
-$router->get('/statistics_create_view', 'views/pages/statistics/create_view.php');
-$router->get('/statistics_destroy_view', 'views/pages/statistics/destroy_view.php');
-$router->get('/statistics_edit_view', 'views/pages/statistics/edit_view.php');
-$router->get('/statistics_index_view', 'views/pages/statistics/index_view.php');
-$router->get('/statistics_show_view', 'views/pages/statistics/show_view.php');
-$router->get('/statistics_store_view', 'views/pages/statistics/store_view.php');
-$router->get('/statistics_update_view', 'views/pages/statistics/update_view.php');
-
-
-$router->get('/notifications_create_view', 'views/pages/notifications/create_view.php');
+$router->get('/notifications_create_view', 'views/pages/notifications/create_view.php')->only('admin');
 $router->get('/notifications_destroy_view', 'views/pages/notifications/destroy_view.php');
-$router->get('/notifications_edit_view', 'views/pages/notifications/edit_view.php');
+$router->get('/notifications_edit_view', 'views/pages/notifications/edit_view.php')->only('admin');
 $router->get('/notifications_index_view', 'views/pages/notifications/index_view.php');
 $router->get('/notifications_show_view', 'views/pages/notifications/show_view.php');
 $router->get('/notifications_list_view', 'views/pages/notifications/list_view.php');
-$router->get('/notifications_store_view', 'views/pages/notifications/store_view.php');
-$router->get('/notifications_update_view', 'views/pages/notifications/update_view.php');
+$router->get('/notifications_store_view', 'views/pages/notifications/store_view.php')->only('admin');
+$router->get('/notifications_update_view', 'views/pages/notifications/update_view.php')->only('admin');
 
 
 $router->get('/users_create_view', 'views/pages/users/create_view.php');
 $router->get('/users_destroy_view', 'views/pages/users/destroy_view.php');
-$router->get('/users_edit_view', 'views/pages/users/edit_view.php');
+$router->get('/users_edit_view', 'views/pages/users/edit_view.php')->only('manager');
 $router->get('/users_index_view', 'views/pages/users/index_view.php');
 $router->get('/users_show_view', 'views/pages/users/show_view.php');
-$router->get('/users_store_view', 'views/pages/users/store_view.php');
-$router->get('/users_update_view', 'views/pages/users/update_view.php');
+$router->get('/users_store_view', 'views/pages/users/store_view.php')->only('admin');
+$router->get('/users_update_view', 'views/pages/users/update_view.php')->only('manager');
 $router->get('/users_verification_view', 'views/pages/users/verification_view.php');
 $router->get('/user_blocked_view', 'views/pages/users/blocked_view.php');
 $router->get('/users_changePassword_view', 'views/pages/users/chanagePassword_view.php');
@@ -241,8 +233,8 @@ $router->put('/notifications_update', 'controllers/notifications/update.php')->o
 
 $router->get('/users_create', 'controllers/users/create.php')->only('guest');
 $router->delete('/users_destroy', 'controllers/users/destroy.php')->only('manager');
-$router->get('/users_edit', 'controllers/users/edit.php');
-$router->get('/users_index', 'controllers/users/index.php');
+$router->get('/users_edit', 'controllers/users/edit.php')->only('manager');
+$router->get('/users_index', 'controllers/users/index.php')->only('guest');
 $router->get('/users_show', 'controllers/users/show.php');
 $router->get('/users_verification', 'controllers/users/verification.php');
 $router->post('/users_verification', 'controllers/users/verification.php');
