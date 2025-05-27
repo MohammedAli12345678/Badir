@@ -35,7 +35,7 @@
       </form>
       <form class="fromCart" action="/islamic_payments_addcart" method="post">
         <input type="hidden" name="islamic_payment_id" value="3">
-        <button type="submit" class="donate_cart" aria-label="السله"><img src="views/media/images/cart.png" alt=""></button>
+        <!-- <button type="submit" class="donate_cart" aria-label="السله"><img src="views/media/images/cart.png" alt=""></button> -->
       </form>
     </div>
 
