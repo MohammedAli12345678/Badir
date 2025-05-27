@@ -18,7 +18,7 @@ if (!isset($_POST['name']) || !Validator::string($_POST['name'] ?? '', 1, 255)) 
     $errors["name"] = "الاسم يجب ان يكون بين  1 او 255 حرفا";
 }
 if (!isset($_POST['age']) || !(Validator::number($_POST['age'] ?? '', 1, 100))) {
-   $errors["age"] = "العمر غير صالح ";
+    $errors["age"] = "العمر غير صالح ";
 }
 if (!isset($_POST['partner_id']) || !Validator::string($_POST['partner_id'] ?? '', 1, 1000)) {
     $errors["partner_id"] = " يجب اختيار شريك صحيح ";
@@ -26,7 +26,7 @@ if (!isset($_POST['partner_id']) || !Validator::string($_POST['partner_id'] ?? '
 if (!isset($_POST['state']) || !Validator::string($_POST['state'] ?? '', 1, 225)) {
     $errors["state "] = "الحالة  غير صالح ";
 }
-if (!isset($_POST['short_description']) || !Validator::string($_POST['short_description'] ?? '',10, 1000)) {
+if (!isset($_POST['short_description']) || !Validator::string($_POST['short_description'] ?? '', 10, 1000)) {
     $errors["short_description"] = "  الوصف المختصر يجب ان يكون بين 10الى 1000 حرفا";
 }
 if (!isset($_POST['full_description']) || !Validator::string($_POST['full_description'] ?? '', 30, 1000)) {
@@ -35,7 +35,7 @@ if (!isset($_POST['full_description']) || !Validator::string($_POST['full_descri
 if (!Validator::number($_POST['cost'] ?? 0, 1, 10000000)) {
     $errors["name"] = " المبلغ غير صالح ";
 }
- // معالجة الأخطاء
+// معالجة الأخطأ
 //  if (!empty($errors)) {
 //     require "views/pages/charity_projects/create_view.php";
 //     die();
@@ -44,12 +44,12 @@ if (!Validator::number($_POST['cost'] ?? 0, 1, 10000000)) {
 
 if (!empty($errors)) {
     $_SESSION['errors'] = $errors;
-    header("Location:". $_SERVER["HTTP_REFERER"]);
+    header("Location:" . $_SERVER["HTTP_REFERER"]);
     exit();
 }
 
 try {
-    require('controllers/parts/image_loader.php') ;
+    require('controllers/parts/image_loader.php');
     $db->query(
         "INSERT INTO projects (
             partner_id,

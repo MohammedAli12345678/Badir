@@ -21,10 +21,10 @@ if (empty($_POST['password'])) {
 
 
 if (! Validator::email($_POST['email'])) {
-    $errors['email'] = "ليسى البريد الإلكتروني صحيح";
+    $errors['email'] = " البريد الإلكتروني غير صحيح";
 }
 if (! Validator::string($_POST['password'])) {
-    $errors['password'] = "ليسى كلمة المرور صحيحة";
+    $errors['password'] = " كلمة المرور غير  صحيحة";
 }
 
 if (!empty($errors)) {

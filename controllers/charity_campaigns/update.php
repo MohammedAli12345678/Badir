@@ -12,9 +12,8 @@ $errors = [];
 // . التحقق من تصنيف الحملة
 if (empty($_POST['category_id'])) {
     $errors['category_id'] = "حقل التصنيف مطلوب";
-} elseif (!Validator::number($_POST['category_id']?? '', 1, 255)) {
+} elseif (!Validator::number($_POST['category_id'] ?? '', 1, 255)) {
     $errors['category_id'] = "يجب اختيار تصنيف صحيح من القائمة";
-
 }
 // . التحقق من الشريك
 if (empty($_POST['partner_id'])) {
@@ -56,7 +55,7 @@ if (empty($_POST['cost'])) {
 //     $errors['photo'] = "رابط الصورة غير صالح. يجب أن يكون رابطاً صحيحاً";
 // }
 //dd($errors);
-// إذا كان هناك أخطاء، عرضها
+// إذا كان هناك أخطأ، عرضها
 // if (!empty($errors)) {
 //     require "views/pages/charity_campaigns/edit_view.php";
 //     die();
@@ -64,12 +63,12 @@ if (empty($_POST['cost'])) {
 
 if (!empty($errors)) {
     $_SESSION['errors'] = $errors;
-    header("Location:". $_SERVER["HTTP_REFERER"]);
+    header("Location:" . $_SERVER["HTTP_REFERER"]);
     exit();
 }
 
 try {
-    require('controllers/parts/image_loader.php') ;
+    require('controllers/parts/image_loader.php');
     $db->query(
         "UPDATE campaigns
         SET 
@@ -100,7 +99,6 @@ try {
             'campaign_id' => $_POST['campaign_id']
         ]
     );
-
 } catch (PDOException $e) {
     error_log($e->getMessage());
     abort(500);
@@ -108,5 +106,5 @@ try {
 
 
 
-header("Location:". $_SERVER["HTTP_REFERER"]);
+header("Location:" . $_SERVER["HTTP_REFERER"]);
 die();
