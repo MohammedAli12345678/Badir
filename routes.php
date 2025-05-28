@@ -5,7 +5,7 @@
 $router->get('/user_blocked_view', 'views/pages/users/blocked_view.php');
 $router->get('/items_view', 'views/pages/items/index_view.php');
 $router->get('/view', 'views/pages/home_view.php');
-$router->get('/home_view', 'views/pages/home_view.php');
+// $router->get('/home_view', 'views/pages/home_view.php');
 $router->get('/about_view', 'views/pages/about_view.php');
 $router->get('/contact_view', 'views/pages/contact_view.php');
 $router->post('/services/phpmailer/send-email_view', 'services/phpmailer/send-email_view.php');
